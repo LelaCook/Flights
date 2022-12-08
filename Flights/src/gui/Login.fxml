@@ -10,8 +10,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: powderblue;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <GridPane hgap="10.0" vgap="10.0">
         <columnConstraints>
@@ -29,20 +28,35 @@
             <Insets bottom="10.0" left="60.0" right="60.0" top="10.0" />
          </padding>
          <children>
-            <Button mnemonicParsing="false" text="Log In" translateX="185.0" GridPane.rowIndex="3" />
-            <Button mnemonicParsing="false" text="Forgot Password" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Label text="UserName: " translateX="90.0" GridPane.rowIndex="1">
+            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="72.0" text="Log In" translateX="164.0" GridPane.rowIndex="3">
                <font>
-                  <Font size="18.0" />
+                  <Font name="Book Antiqua" size="12.0" />
+               </font></Button>
+            <Button mnemonicParsing="false" text="Forgot Password" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <font>
+                  <Font name="Book Antiqua" size="12.0" />
+               </font></Button>
+            <Label text="Username: " translateX="90.0" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Book Antiqua" size="18.0" />
                </font>
             </Label>
             <Label text="Password: " translateX="90.0" GridPane.rowIndex="2">
                <font>
-                  <Font size="18.0" />
+                  <Font name="Book Antiqua" size="18.0" />
                </font>
             </Label>
             <PasswordField GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <PasswordField prefHeight="26.0" prefWidth="170.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="Flights R US" translateX="140.0">
+               <font>
+                  <Font name="Book Antiqua" size="36.0" />
+               </font>
+            </Label>
+            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="84.0" text="New User" translateX="200.0" translateY="-20.0" GridPane.rowIndex="4">
+               <font>
+                  <Font name="Book Antiqua" size="12.0" />
+               </font></Button>
          </children>
       </GridPane>
    </children>
