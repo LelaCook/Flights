@@ -3,16 +3,15 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: powderblue;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: powderblue;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.RegisterController">
    <children>
       <GridPane hgap="10.0" vgap="10.0">
         <columnConstraints>
@@ -36,13 +35,6 @@
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </padding>
          <children>
-            <PasswordField promptText="John" GridPane.columnIndex="1" />
-            <PasswordField promptText="Doe" GridPane.columnIndex="3" />
-            <PasswordField promptText="Johnny533" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <PasswordField promptText="Password" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <PasswordField promptText="johndoe@gmail.com" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <PasswordField promptText="123456789" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-            <PasswordField promptText="Street Name" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <Label text="First Name:">
                <font>
                   <Font name="Book Antiqua" size="14.0" />
@@ -88,14 +80,12 @@
                   <Font name="Book Antiqua" size="14.0" />
                </font>
             </Label>
-            <PasswordField GridPane.columnIndex="3" GridPane.rowIndex="4" />
             <CheckBox mnemonicParsing="false" text="Admin?" translateX="10.0" GridPane.rowIndex="5" />
             <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="79.0" text="Submit" translateX="155.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
                <font>
                   <Font name="Book Antiqua" size="12.0" />
                </font>
             </Button>
-            <PasswordField promptText="City" GridPane.columnIndex="2" GridPane.rowIndex="3" />
             <GridPane hgap="10.0" vgap="10.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="89.5999755859375" minWidth="10.0" prefWidth="78.99998779296875" />
@@ -105,8 +95,8 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <PasswordField promptText="Zipcode" GridPane.columnIndex="1" />
-                  <ComboBox prefHeight="26.0" prefWidth="81.0" promptText="State" />
+                  <TextField promptText="State" />
+                  <TextField promptText="Zip Code" GridPane.columnIndex="1" />
                </children>
             </GridPane>
             <Label text="When were you born?" GridPane.columnIndex="1" GridPane.rowIndex="4">
@@ -114,6 +104,15 @@
                   <Font name="Book Antiqua" size="18.0" />
                </font>
             </Label>
+            <TextField promptText="John" GridPane.columnIndex="1" />
+            <TextField promptText="Johnny1536" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField promptText="jondoe@gmail.com" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField promptText="Street Name" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField promptText="City" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <TextField promptText="123-45-6789" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <TextField promptText="Password" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <TextField promptText="Doe" GridPane.columnIndex="3" />
+            <TextField GridPane.columnIndex="3" GridPane.rowIndex="4" />
          </children>
       </GridPane>
    </children>
