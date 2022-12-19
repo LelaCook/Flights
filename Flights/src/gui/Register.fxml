@@ -18,7 +18,7 @@
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="83.5999755859375" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="189.00001220703126" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="82.59998779296876" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="192.7999755859375" />
+            <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="192.7999755859375" />
         </columnConstraints>
         <rowConstraints>
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -80,10 +80,13 @@
                   <Font name="Book Antiqua" size="14.0" />
                </font>
             </Label>
-            <CheckBox mnemonicParsing="false" text="Admin?" translateX="10.0" GridPane.rowIndex="5" />
+            <CheckBox mnemonicParsing="false" text="Admin?" translateX="10.0" GridPane.rowIndex="5">
+               <font>
+                  <Font name="Book Antiqua" size="13.0" />
+               </font></CheckBox>
             <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="79.0" text="Submit" translateX="155.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
                <font>
-                  <Font name="Book Antiqua" size="12.0" />
+                  <Font name="Book Antiqua" size="14.0" />
                </font>
             </Button>
             <GridPane hgap="10.0" vgap="10.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
@@ -113,6 +116,11 @@
             <TextField promptText="Password" GridPane.columnIndex="3" GridPane.rowIndex="1" />
             <TextField promptText="Doe" GridPane.columnIndex="3" />
             <TextField GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <Button fx:id="button" mnemonicParsing="false" onAction="#goToLogin" prefHeight="26.0" prefWidth="56.0" text="Back" GridPane.columnIndex="3" GridPane.rowIndex="5">
+               <font>
+                  <Font name="Book Antiqua" size="14.0" />
+               </font>
+            </Button>
          </children>
       </GridPane>
    </children>
