@@ -16,13 +16,14 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
     	
-		Parent root = FXMLLoader.load(getClass().getResource("/gui/Open.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("../gui/Login.fxml"));
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 		primaryStage.setScene(scene);
 		primaryStage.show();
 		
+    } 
+
 	}
 	
 
-}
