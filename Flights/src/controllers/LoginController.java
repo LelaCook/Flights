@@ -1,30 +1,46 @@
 package controllers;
 
-import java.awt.event.ActionEvent;
 import java.io.IOException;
 
-import javafx.fxml.FXML;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 public class LoginController {
 	
-	@FXML 
-	private Button newButton; 
+	
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
-
-	public void goToRegister(ActionEvent event) throws IOException {
-		root = FXMLLoader.load(getClass().getResource("/gui/Register.fxml"));
-		stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+	
+	
+	public void register (ActionEvent event) throws IOException {
+		Parent root = FXMLLoader.load(getClass().getResource("../gui/Register.fxml"));
+		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		scene = new Scene(root);
 		stage.setScene(scene);
 		stage.show();
+		///System.out.println("HI");
 	}
-
+	public void login (ActionEvent event) throws IOException {
+		Parent root = FXMLLoader.load(getClass().getResource("../gui/Search.fxml"));
+		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
+		///System.out.println("HI");
+	}
+	public void forgotPassword (ActionEvent event) throws IOException {
+		Parent root = FXMLLoader.load(getClass().getResource("../gui/Forgot.fxml"));
+		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
+		///System.out.println("HI");
 }
+}
+	
+	
