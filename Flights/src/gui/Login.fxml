@@ -21,7 +21,8 @@
           <RowConstraints maxHeight="142.5999797821045" minHeight="10.0" prefHeight="127.39999809265137" vgrow="SOMETIMES" />
           <RowConstraints maxHeight="251.60003967285155" minHeight="10.0" prefHeight="133.00000190734863" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="170.40000000000003" minHeight="10.0" prefHeight="46.799960327148426" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="120.79996337890623" minHeight="10.0" prefHeight="82.39999999999998" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="170.40000000000003" minHeight="10.0" prefHeight="46.799960327148426" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="120.79996337890623" minHeight="10.0" prefHeight="82.39999999999998" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <Label text="Log In">
@@ -37,6 +38,7 @@
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
                   <Label text="Username: ">
@@ -56,11 +58,6 @@
                   <Insets bottom="10.0" left="10.0" right="70.0" top="10.0" />
                </padding>
             </GridPane>
-            <Button fx:id="button_register" mnemonicParsing="false" onAction="#register" prefHeight="28.0" prefWidth="122.0" text="New User?" GridPane.rowIndex="3" GridPane.valignment="TOP">
-               <font>
-                  <Font name="Book Antiqua" size="14.0" />
-               </font>
-            </Button>
             <GridPane hgap="10.0" vgap="10.0" GridPane.rowIndex="2">
               <columnConstraints>
                 <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -70,18 +67,28 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button fx:id="button_forgot_password" mnemonicParsing="false" onAction="#forgotPassword" text="Forgot Password" GridPane.columnIndex="1">
+                  <Button fx:id="button_forgot_password" mnemonicParsing="false" onAction="#forgotPassword" text="Forgot Password">
                      <font>
                         <Font name="Book Antiqua" size="14.0" />
                      </font>
                   </Button>
-                  <Button fx:id="button_login" mnemonicParsing="false" onAction="#login" prefHeight="28.0" prefWidth="130.0" text="Log In">
+                  <Label fx:id="label_login_message" textFill="RED" GridPane.columnIndex="1">
                      <font>
-                        <Font name="Book Antiqua" size="14.0" />
+                        <Font size="18.0" />
                      </font>
-                  </Button>
+                  </Label>
                </children>
             </GridPane>
+            <Button fx:id="button_login" mnemonicParsing="false" onAction="#login" prefHeight="28.0" prefWidth="130.0" text="Log In" GridPane.rowIndex="3">
+               <font>
+                  <Font name="Book Antiqua" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="button_register" mnemonicParsing="false" onAction="#register" prefHeight="28.0" prefWidth="122.0" text="New User?" GridPane.rowIndex="4" GridPane.valignment="TOP">
+               <font>
+                  <Font name="Book Antiqua" size="14.0" />
+               </font>
+            </Button>
          </children>
       </GridPane>
    </children>
