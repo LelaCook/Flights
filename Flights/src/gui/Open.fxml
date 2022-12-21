@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: powderblue;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.SplashController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: powderblue;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SplashController">
    <children>
       <GridPane>
         <columnConstraints>
@@ -19,16 +19,16 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="Welcome to Flights R US">
-               <font>
-                  <Font name="Book Antiqua" size="48.0" />
-               </font>
-            </Label>
-            <Button fx:id="StartButton" mnemonicParsing="false" onAction="#goToLogin" text="Start" GridPane.rowIndex="1">
+            <Button fx:id="button_start" blendMode="SRC_ATOP" mnemonicParsing="false" onAction="#start" text="Start" GridPane.rowIndex="1">
                <font>
                   <Font name="Book Antiqua" size="24.0" />
                </font>
             </Button>
+            <Label text="Welcome to Flights R US!">
+               <font>
+                  <Font name="Heiti TC Light" size="48.0" />
+               </font>
+            </Label>
          </children>
       </GridPane>
    </children>
