@@ -46,6 +46,8 @@ public class LoginController{
 	
 	
 	public void login (ActionEvent event) throws IOException {
+		//if statement below will eventually be changed
+		//if tf_username and tf_password matches username and password in database .. then execute line 53-57(go to search page)
 		if(tf_username.getText().isBlank()== false && tf_password.getText().isBlank()==false) {
 		
 			Parent root = FXMLLoader.load(getClass().getResource("../gui/Search.fxml"));
@@ -53,7 +55,6 @@ public class LoginController{
 			scene = new Scene(root);
 			stage.setScene(scene);
 			stage.show();
-			System.out.println("HI");
 		
 		
 		}else {

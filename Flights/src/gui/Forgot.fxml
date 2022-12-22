@@ -58,7 +58,7 @@
               </rowConstraints>
                <children>
                   <Label text="  " />
-                  <Button mnemonicParsing="false" text="Back" GridPane.columnIndex="1" />
+                  <Button fx:id="button_back" mnemonicParsing="false" onAction="#backToLogin" text="Back" GridPane.columnIndex="1" />
                </children>
             </GridPane>
          </children>
