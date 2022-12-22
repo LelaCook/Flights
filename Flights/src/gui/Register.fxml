@@ -98,8 +98,8 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <TextField promptText="State" />
-                  <TextField promptText="Zip Code" GridPane.columnIndex="1" />
+                  <TextField fx:id="tf_state" promptText="State" />
+                  <TextField fx:id="tf_zip" promptText="Zip Code" GridPane.columnIndex="1" />
                </children>
             </GridPane>
             <Label text="When were you born?" GridPane.columnIndex="1" GridPane.rowIndex="4">
@@ -107,15 +107,15 @@
                   <Font name="Book Antiqua" size="18.0" />
                </font>
             </Label>
-            <TextField promptText="John" GridPane.columnIndex="1" />
-            <TextField promptText="Johnny1536" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField promptText="jondoe@gmail.com" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField promptText="Street Name" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField promptText="City" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-            <TextField promptText="123-45-6789" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-            <TextField promptText="Password" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <TextField promptText="Doe" GridPane.columnIndex="3" />
-            <TextField GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <TextField fx:id="tf_firstname" promptText="John" GridPane.columnIndex="1" />
+            <TextField fx:id="tf_username" promptText="Johnny1536" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="tf_email" promptText="jondoe@gmail.com" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="tf_street" promptText="Street Name" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="tf_city" promptText="City" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <TextField fx:id="tf_ssn" promptText="123-45-6789" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <TextField fx:id="tf_password" promptText="Password" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <TextField fx:id="tf_lastname" promptText="Doe" GridPane.columnIndex="3" />
+            <TextField fx:id="tf_security_answer" GridPane.columnIndex="3" GridPane.rowIndex="4" />
             <Button fx:id="button_back" mnemonicParsing="false" onAction="#goToLogin" prefHeight="26.0" prefWidth="56.0" text="Back" GridPane.columnIndex="3" GridPane.rowIndex="5">
                <font>
                   <Font name="Book Antiqua" size="14.0" />

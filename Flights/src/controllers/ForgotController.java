@@ -49,19 +49,26 @@ public class ForgotController {
 						("jdbc:sqlserver://javaflightdb.database.windows.net:1433;database=javaflightdb;user=javaflightdb@javaflightdb;password=CISproject22!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
 				
 				
-				String verifyAnswer = "SELECT count(1) FROM UserAccounts WHERE username = '" + tf_username.getText() + "' AND securityanswer = '" + tf_security_answer.getText() + "'";
-				String verifyAnswer2 = "SELECT password FROM UserAccounts WHERE username = '" + tf_username.getText() + "' AND securityanswer = '" + tf_security_answer.getText() + "'";
-				
+				String verifyAnswer = "SELECT count(1) FROM UserAccounts WHERE username = '" + tf_username.getText() + "' AND securityanswer = '" + tf_security_answer.getText() + "'";		
+
 				try {
 					
 					Statement statement = connection.createStatement();
 					ResultSet queryResult = statement.executeQuery(verifyAnswer);
-					
+
 					
 					while (queryResult.next()) {
 						if (queryResult.getInt(1)==1) {
-							ResultSet newQueryResult = statement.executeQuery(verifyAnswer2);
-							label_password_message.setText(newQueryResult.getString(verifyAnswer2));
+							Connection connection2 = DriverManager.getConnection
+									("jdbc:sqlserver://javaflightdb.database.windows.net:1433;database=javaflightdb;user=javaflightdb@javaflightdb;password=CISproject22!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
+							Statement statement1 = connection2.createStatement();
+							String verifyAnswer2 = "SELECT password FROM UserAccounts WHERE username = '" + tf_username.getText() + "' AND securityanswer = '" + tf_security_answer.getText() + "'";
+
+							ResultSet resultSet = statement1.executeQuery
+									(verifyAnswer2);
+							
+							//ResultSet newQueryResult = statement.executeQuery(verifyAnswer2);
+							label_password_message.setText(resultSet.getString(1));
 							
 					
 					// if not, print error message	
