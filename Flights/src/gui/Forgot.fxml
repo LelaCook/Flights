@@ -44,8 +44,8 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <TextField alignment="CENTER" onAction="#tf_security_answer" promptText="Answer" />
-                  <Button fx:id="button_enter" mnemonicParsing="false" onAction="#securityAnswer" prefHeight="26.0" prefWidth="64.0" text="Enter" GridPane.columnIndex="1" />
+                  <TextField alignment="CENTER"  promptText="Answer" />
+                  <Button fx:id="button_enter" mnemonicParsing="false" prefHeight="26.0" prefWidth="64.0" text="Enter" GridPane.columnIndex="1" />
                </children>
             </GridPane>
          </children>
