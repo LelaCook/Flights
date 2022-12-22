@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.EventObject;
 import javafx.event.ActionEvent;
@@ -39,39 +40,58 @@ public class LoginController{
 		scene = new Scene(root);
 		stage.setScene(scene);
 		stage.show();
-		///System.out.println("HI");
 	}
 	
 	
 	
 	
-	public void login (ActionEvent event) throws IOException {
-		//if statement below will eventually be changed
-		//if tf_username and tf_password matches username and password in database .. then execute line 53-57(go to search page)
-		if(tf_username.getText().isBlank()== false && tf_password.getText().isBlank()==false) {
+	
+	public void login (ActionEvent event) throws IOException, SQLException {
+		//connect to db
+		Connection connection = DriverManager.getConnection
+				("jdbc:sqlserver://javaflightdb.database.windows.net:1433;database=javaflightdb;user=javaflightdb@javaflightdb;password=CISproject22!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
 		
-			Parent root = FXMLLoader.load(getClass().getResource("../gui/Search.fxml"));
-			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-			scene = new Scene(root);
-			stage.setScene(scene);
-			stage.show();
+		//create string (verifyLogin) that will compare user input to database attributes
+		String verifyLogin = "SELECT count(1) FROM UserAccounts WHERE username = '" + tf_username.getText() + "' AND password = '" + tf_password.getText() + "'";
 		
 		
-		}else {
-			label_login_message.setText("Invalid login. Try again.");
+		try {
+			//executes verifyLogin statement and store results in queryResult
+			Statement statement = connection.createStatement();
+			ResultSet queryResult = statement.executeQuery(verifyLogin);
+			
+			//turn queryResult into int and test if its 1 (if theres a match), if so go to search page
+			while (queryResult.next()) {
+				if (queryResult.getInt(1)==1) {
+					Parent root = FXMLLoader.load(getClass().getResource("../gui/Search.fxml"));
+					stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+					scene = new Scene(root);
+					stage.setScene(scene);
+					stage.show();
+			
+			// if not, print error message	
+			}else {
+				
+					label_login_message.setText("Invalid login. Please try again");
+			}	
+		}
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+			e.getCause();
 		}
 	}
+		
+		
 	
-			
 	
-
+	
 	public void forgotPassword (ActionEvent event) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("../gui/Forgot.fxml"));
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		scene = new Scene(root);
 		stage.setScene(scene);
 		stage.show();
-		///System.out.println("HI");
 }
 
 		
