@@ -64,7 +64,7 @@ public class ForgotController {
 		} catch (Exception e) {
 			e.printStackTrace();
 			e.getCause();
-		}
+		} if verifyLogin == 1;
 		
 	}
 		
