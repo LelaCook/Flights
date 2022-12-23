@@ -40,8 +40,6 @@ public class ForgotController {
 
 }
 	
-		
-
 
 	public void revealPassword (ActionEvent event) throws IOException, SQLException, ClassNotFoundException {
 		//connect to db

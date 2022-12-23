@@ -63,7 +63,7 @@ public class LoginController{
 			//turn queryResult into int and test if its 1 (if theres a match), if so go to search page
 			while (queryResult.next()) {
 				if (queryResult.getInt(1)==1) {
-					Parent root = FXMLLoader.load(getClass().getResource("../gui/Search.fxml"));
+					Parent root = FXMLLoader.load(getClass().getResource("../gui/Searches.fxml"));
 					stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 					scene = new Scene(root);
 					stage.setScene(scene);
