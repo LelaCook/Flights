@@ -102,7 +102,7 @@
                   <TextField fx:id="tf_zip" promptText="Zip Code" GridPane.columnIndex="1" />
                </children>
             </GridPane>
-            <Label text="When were you born?" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <Label text="Where were you born?" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <font>
                   <Font name="Book Antiqua" size="18.0" />
                </font>
