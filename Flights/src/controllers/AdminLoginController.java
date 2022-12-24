@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.EventObject;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,8 +18,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class LoginController{
-	
+public class AdminLoginController {
 	
 	private Stage stage;
 	private Scene scene;
@@ -30,20 +29,11 @@ public class LoginController{
 	private TextField tf_username;
 	private TextField tf_password;
 	private Button loginButton;
-	private Button ForgotButton;
+	private Button backButton;
 	private Button newUserButton;
-	private Button OtherButton;
 
 	public void register (ActionEvent event) throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("../gui/Register.fxml"));
-		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-		scene = new Scene(root);
-		stage.setScene(scene);
-		stage.show();
-	}
-	
-	public void goToAdminLogin (ActionEvent event) throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("../gui/AdminLogin.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("../gui/AdminRegister.fxml"));
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		scene = new Scene(root);
 		stage.setScene(scene);
@@ -56,9 +46,8 @@ public class LoginController{
 				("jdbc:sqlserver://javaflightdb.database.windows.net:1433;database=javaflightdb;user=javaflightdb@javaflightdb;password=CISproject22!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
 		
 		//create string (verifyLogin) that will compare user input to database attributes
-		String verifyLogin = "SELECT count(1) FROM UserAccounts WHERE username = '" + tf_username.getText() + "' AND password = '" + tf_password.getText() + "'";
-		
-		
+		String verifyLogin = "SELECT count(1) FROM AdminAccounts WHERE username = '" + tf_username.getText() + "' AND password = '" + tf_password.getText() + "'";
+
 		try {
 			//executes verifyLogin statement and store results in queryResult
 			Statement statement = connection.createStatement();
@@ -85,21 +74,13 @@ public class LoginController{
 			e.getCause();
 		}
 	}
-		
-		
 	
-	
-	
-	public void forgotPassword (ActionEvent event) throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("../gui/Forgot.fxml"));
+	public void back (ActionEvent event) throws IOException {
+		Parent root = FXMLLoader.load(getClass().getResource("../gui/Login.fxml"));
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		scene = new Scene(root);
 		stage.setScene(scene);
 		stage.show();
-}
-
-		
 	}
 
-	
-	
+}

@@ -12,7 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-public class SplashController {
+public class OpenController {
 	
 	private Stage stage;
 	private Scene scene;

@@ -71,6 +71,11 @@
             <TextField GridPane.columnIndex="3" GridPane.rowIndex="1" />
             <DatePicker GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <DatePicker GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <Button mnemonicParsing="false" text="Quit" GridPane.rowIndex="3">
+               <font>
+                  <Font name="Book Antiqua" size="12.0" />
+               </font>
+            </Button>
          </children>
       </GridPane>
    </children>
