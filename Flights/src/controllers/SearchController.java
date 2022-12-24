@@ -25,7 +25,7 @@ public class SearchController {
 	private Scene scene;
 	private Parent root;
 
-	public void logOut(ActionEvent event) throws IOException {
+	public void logout(ActionEvent event) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("../gui/Logout.fxml"));
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		scene = new Scene(root);
