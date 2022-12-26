@@ -30,11 +30,6 @@ public class LogoutController {
 			scene = new Scene(root);
 			stage.setScene(scene);
 			stage.show();
-		
-	}
-	
-	public void notLogOut (ActionEvent event) throws IOException {
-		
 	}
 
 }

@@ -52,7 +52,6 @@ public class LoginController{
 		//create string (verifyLogin) that will compare user input to database attributes
 		String verifyLogin = "SELECT count(1) FROM UserAccounts WHERE username = '" + tf_username.getText() + "' AND password = '" + tf_password.getText() + "'";
 		
-		
 		try {
 			//executes verifyLogin statement and store results in queryResult
 			Statement statement = connection.createStatement();
@@ -66,9 +65,9 @@ public class LoginController{
 					scene = new Scene(root);
 					stage.setScene(scene);
 					stage.show();
-			
-			// if not, print error message	
-			}else {
+			}
+				// if not, print error message	
+				else {
 				
 					label_login_message.setText("Invalid login. Please try again");
 			}	

@@ -77,8 +77,11 @@
             </GridPane>
             <TableView prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
               <columns>
-                <TableColumn prefWidth="75.0" text="C1" />
-                <TableColumn prefWidth="75.0" text="C2" />
+                <TableColumn prefWidth="75.0" text="ID" />
+                <TableColumn prefWidth="95.99994659423828" text="Depart" />
+                  <TableColumn prefWidth="104.79998779296875" text="Take Off" />
+                  <TableColumn prefWidth="108.0" text="Arrive" />
+                  <TableColumn prefWidth="137.59994506835938" text="Landing" />
               </columns>
             </TableView>
          </children>
