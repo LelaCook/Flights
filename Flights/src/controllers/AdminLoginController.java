@@ -14,11 +14,11 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class AdminLoginController {
+public class AdminLoginController{
+	
 	
 	private Stage stage;
 	private Scene scene;
@@ -32,6 +32,8 @@ public class AdminLoginController {
 	private TextField tf_password;
 	
 	
+	
+	
 	public void register (ActionEvent event) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("../gui/AdminRegister.fxml"));
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -39,7 +41,11 @@ public class AdminLoginController {
 		stage.setScene(scene);
 		stage.show();
 	}
+	
 
+	
+	
+	
 	public void login (ActionEvent event) throws IOException, SQLException {
 		//connect to db
 		Connection connection = DriverManager.getConnection
@@ -47,7 +53,8 @@ public class AdminLoginController {
 		
 		//create string (verifyLogin) that will compare user input to database attributes
 		String verifyLogin = "SELECT count(1) FROM AdminAccounts WHERE username = '" + tf_username.getText() + "' AND password = '" + tf_password.getText() + "'";
-
+		
+		
 		try {
 			//executes verifyLogin statement and store results in queryResult
 			Statement statement = connection.createStatement();
@@ -63,8 +70,7 @@ public class AdminLoginController {
 					stage.show();
 			
 			// if not, print error message	
-			}
-				else {
+			}else {
 				
 					label_login_message.setText("Invalid login. Please try again");
 			}	
@@ -75,6 +81,10 @@ public class AdminLoginController {
 			e.getCause();
 		}
 	}
+		
+		
+	
+	
 
 	public void back (ActionEvent event) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("../gui/Login.fxml"));
