@@ -13,7 +13,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -27,13 +26,11 @@ public class LoginController{
 	
 	@FXML
 	private Label label_login_message;
+	@FXML
 	private TextField tf_username;
+	@FXML
 	private TextField tf_password;
-	private Button loginButton;
-	private Button ForgotButton;
-	private Button newUserButton;
-	private Button OtherButton;
-
+	
 	public void register (ActionEvent event) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("../gui/Register.fxml"));
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -41,10 +38,6 @@ public class LoginController{
 		stage.setScene(scene);
 		stage.show();
 	}
-	
-
-	
-	
 	
 	public void login (ActionEvent event) throws IOException, SQLException {
 		//connect to db
@@ -91,5 +84,3 @@ public class LoginController{
 	}
 
 }
-
-	
