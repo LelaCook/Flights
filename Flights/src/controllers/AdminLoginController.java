@@ -26,7 +26,9 @@ public class AdminLoginController {
 	
 	@FXML
 	private Label label_login_message;
+	@FXML
 	private TextField tf_username;
+	@FXML
 	private TextField tf_password;
 	
 	
