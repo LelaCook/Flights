@@ -95,7 +95,14 @@ public class LoginController{
 }
 
 		
+	
+	public void adminLogin (ActionEvent event) throws IOException {
+		Parent root = FXMLLoader.load(getClass().getResource("../gui/AdminLogin.fxml"));
+		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
+}
 	}
-
 	
 	

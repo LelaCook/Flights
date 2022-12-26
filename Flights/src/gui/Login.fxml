@@ -99,7 +99,7 @@
                   </Button>
                </children>
             </GridPane>
-            <Button fx:id="OtherButton" mnemonicParsing="false" prefHeight="28.0" prefWidth="119.0" text="Admin Log In" GridPane.rowIndex="4">
+            <Button fx:id="OtherButton" mnemonicParsing="false" onAction="#adminLogin" prefHeight="28.0" prefWidth="119.0" text="Admin Log In" GridPane.rowIndex="4">
                <font>
                   <Font name="Book Antiqua" size="14.0" />
                </font>

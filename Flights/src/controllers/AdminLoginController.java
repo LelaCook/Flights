@@ -6,14 +6,13 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
+import java.util.EventObject;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -28,9 +27,7 @@ public class AdminLoginController {
 	private Label label_login_message;
 	private TextField tf_username;
 	private TextField tf_password;
-	private Button loginButton;
-	private Button backButton;
-	private Button newUserButton;
+	
 	
 	public void register (ActionEvent event) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("../gui/AdminRegister.fxml"));
@@ -56,7 +53,7 @@ public class AdminLoginController {
 			//turn queryResult into int and test if its 1 (if theres a match), if so go to search page
 			while (queryResult.next()) {
 				if (queryResult.getInt(1)==1) {
-					Parent root = FXMLLoader.load(getClass().getResource("../gui/Searches.fxml"));
+					Parent root = FXMLLoader.load(getClass().getResource("../gui/Admin.fxml"));
 					stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 					scene = new Scene(root);
 					stage.setScene(scene);
