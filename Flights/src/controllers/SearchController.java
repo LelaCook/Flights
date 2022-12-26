@@ -45,8 +45,13 @@ public class SearchController {
 		//for account controller, IF flightID (flighttable) == flightID (userAccounts) , write select statement to display flight info based on flight ID from flight table 
 	}
 	
+	
 	public void search(ActionEvent event) throws IOException, SQLException {
+		
+		
 		
 	}
 
+	
+	
 }

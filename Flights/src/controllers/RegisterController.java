@@ -22,7 +22,11 @@ public class RegisterController {
 	
 	@FXML
 	private TextField tf_username;
-	private Button button; 
+	@FXML
+	private TextField tf_password;
+	@FXML
+	private TextField tf_security_answer;
+	
 	
 	private Stage stage;
 	private Scene scene;
@@ -41,15 +45,23 @@ public class RegisterController {
 		Connection connection = DriverManager.getConnection
 				("jdbc:sqlserver://javaflightdb.database.windows.net:1433;database=javaflightdb;user=javaflightdb@javaflightdb;password=CISproject22!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
 		try {
-		String database = "INSERT INTO UserAccounts (username,password,securitynswer) VALUES (?,?,?)";
+		String database = "INSERT INTO UserAccounts (username,password,securityanswer) VALUES (?,?,?)";
 		PreparedStatement statement = connection.prepareStatement(database);
 	
+		//wont work when i try to get tf from user (look below)
+		statement.setString(1, tf_username.getText());
+		statement.setString(2, tf_password.getText());
+		statement.setString(3, tf_security_answer.getText());
 		
-		statement.setString(1, "hi");
-		statement.setString(2, "hello");
-		statement.setString(3, "bye");
+		
+		
+		//statement.setString(1, "hi");
+		//statement.setString(2, "hello");
+		//statement.setString(3, "bye");
 		
 		System.out.println("inserted");
+		
+		statement.executeUpdate();
 		}
 		
 		
