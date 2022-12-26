@@ -19,16 +19,22 @@ import javafx.stage.Stage;
 
 public class LoginController{
 	
+	
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
 	
 	@FXML
 	private Label label_login_message;
+	@FXML
 	private TextField tf_username;
+	@FXML
 	private TextField tf_password;
 	
-	public void register(ActionEvent event) throws IOException {
+	
+	
+	
+	public void register (ActionEvent event) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("../gui/Register.fxml"));
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		scene = new Scene(root);
@@ -36,13 +42,9 @@ public class LoginController{
 		stage.show();
 	}
 	
-	public void admin(ActionEvent event) throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("../gui/AdminLogin.fxml"));
-		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-		scene = new Scene(root);
-		stage.setScene(scene);
-		stage.show();
-	}
+
+	
+	
 	
 	public void login (ActionEvent event) throws IOException, SQLException {
 		//connect to db
@@ -51,6 +53,7 @@ public class LoginController{
 		
 		//create string (verifyLogin) that will compare user input to database attributes
 		String verifyLogin = "SELECT count(1) FROM UserAccounts WHERE username = '" + tf_username.getText() + "' AND password = '" + tf_password.getText() + "'";
+		
 		
 		try {
 			//executes verifyLogin statement and store results in queryResult
@@ -65,9 +68,9 @@ public class LoginController{
 					scene = new Scene(root);
 					stage.setScene(scene);
 					stage.show();
-			}
-				// if not, print error message	
-				else {
+			
+			// if not, print error message	
+			}else {
 				
 					label_login_message.setText("Invalid login. Please try again");
 			}	
@@ -78,6 +81,10 @@ public class LoginController{
 			e.getCause();
 		}
 	}
+		
+		
+	
+	
 	
 	public void forgotPassword (ActionEvent event) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("../gui/Forgot.fxml"));
@@ -85,6 +92,10 @@ public class LoginController{
 		scene = new Scene(root);
 		stage.setScene(scene);
 		stage.show();
+}
+
+		
 	}
 
-}
+	
+	
