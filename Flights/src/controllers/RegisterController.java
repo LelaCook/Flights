@@ -3,6 +3,7 @@ package controllers;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -27,6 +28,7 @@ public class RegisterController {
 	private Scene scene;
 	private Parent root;
 
+	//once info is inserted, press log in to log in with new credentials which are now in databse 
 	public void goToLogin(ActionEvent event) throws IOException {
 		root = FXMLLoader.load(getClass().getResource("../gui/Login.fxml"));
 		stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -34,15 +36,20 @@ public class RegisterController {
 		stage.setScene(scene);
 		stage.show();
 	}
-
+//insert info and click submit in oder for it to go to database
 	public void goToLoginSubmit (ActionEvent event) throws SQLException {
 		Connection connection = DriverManager.getConnection
 				("jdbc:sqlserver://javaflightdb.database.windows.net:1433;database=javaflightdb;user=javaflightdb@javaflightdb;password=CISproject22!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
 		try {
-		String database = "INSERT INTO UserAccounts (username,password,securitynswer) VALUES (hi,hi,hi)";
-		Statement statement = connection.createStatement();
-		ResultSet queryResult = statement.executeQuery(database);
+		String database = "INSERT INTO UserAccounts (username,password,securitynswer) VALUES (?,?,?)";
+		PreparedStatement statement = connection.prepareStatement(database);
+	
 		
+		statement.setString(1, "hi");
+		statement.setString(2, "hello");
+		statement.setString(3, "bye");
+		
+		System.out.println("inserted");
 		}
 		
 		
