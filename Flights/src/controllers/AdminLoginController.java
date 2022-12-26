@@ -31,7 +31,7 @@ public class AdminLoginController {
 	private Button loginButton;
 	private Button backButton;
 	private Button newUserButton;
-
+	
 	public void register (ActionEvent event) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("../gui/AdminRegister.fxml"));
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -39,7 +39,7 @@ public class AdminLoginController {
 		stage.setScene(scene);
 		stage.show();
 	}
-	
+
 	public void login (ActionEvent event) throws IOException, SQLException {
 		//connect to db
 		Connection connection = DriverManager.getConnection
@@ -63,7 +63,8 @@ public class AdminLoginController {
 					stage.show();
 			
 			// if not, print error message	
-			}else {
+			}
+				else {
 				
 					label_login_message.setText("Invalid login. Please try again");
 			}	
@@ -74,7 +75,7 @@ public class AdminLoginController {
 			e.getCause();
 		}
 	}
-	
+
 	public void back (ActionEvent event) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("../gui/Login.fxml"));
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();

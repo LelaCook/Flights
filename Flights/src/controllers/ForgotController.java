@@ -1,5 +1,6 @@
 package controllers;
 
+import java.awt.Window;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -37,9 +38,8 @@ public class ForgotController {
 		scene = new Scene(root);
 		stage.setScene(scene);
 		stage.show();
-
+		
 }
-	
 
 	public void revealPassword (ActionEvent event) throws IOException, SQLException, ClassNotFoundException {
 		//connect to db
@@ -81,10 +81,5 @@ public class ForgotController {
 					e.getCause();
 				}
 			}
-		
-		
-		
-		
-		
 		
 	}
