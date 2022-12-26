@@ -31,9 +31,6 @@ public class LoginController{
 	@FXML
 	private TextField tf_password;
 	
-	
-	
-	
 	public void register (ActionEvent event) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("../gui/Register.fxml"));
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -41,10 +38,6 @@ public class LoginController{
 		stage.setScene(scene);
 		stage.show();
 	}
-	
-
-	
-	
 	
 	public void login (ActionEvent event) throws IOException, SQLException {
 		//connect to db
@@ -81,10 +74,6 @@ public class LoginController{
 			e.getCause();
 		}
 	}
-		
-		
-	
-	
 	
 	public void forgotPassword (ActionEvent event) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("../gui/Forgot.fxml"));
@@ -92,10 +81,9 @@ public class LoginController{
 		scene = new Scene(root);
 		stage.setScene(scene);
 		stage.show();
-}
-
-		
 	}
+
+}
 
 	
 	
