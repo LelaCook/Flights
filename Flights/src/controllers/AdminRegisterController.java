@@ -41,7 +41,9 @@ public class AdminRegisterController {
 		stage.show();
 	}
 //insert info and click submit in oder for it to go to database
-	public void AdminSubmit (ActionEvent event) throws SQLException {
+
+
+	public void addToAdminAccounts (ActionEvent event) throws SQLException {
 		Connection connection = DriverManager.getConnection
 				("jdbc:sqlserver://javaflightdb.database.windows.net:1433;database=javaflightdb;user=javaflightdb@javaflightdb;password=CISproject22!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
 		try {
@@ -52,47 +54,51 @@ public class AdminRegisterController {
 		statement.setString(1, tf_username.getText());
 		statement.setString(2, tf_password.getText());
 		statement.setString(3, tf_security_answer.getText());
-		
+
 		System.out.println("inserted into admin accts");
 		statement.executeUpdate();
 		
 			
+
 		//statement.setString(1, "hi");
 		//statement.setString(2, "hello");
 		//statement.setString(3, "bye");
-	
-		}
 		
-		catch (Exception e) {
+		System.out.println("inserted");
+		
+		statement.executeUpdate();
+
+
+
+		}catch (Exception e) {
 			e.printStackTrace();
-			e.getCause();
+			e.getCause(); 
 		}
+			}
 		
-	}
-	public void UserSubmit (ActionEvent event) throws SQLException {
-		Connection connection = DriverManager.getConnection
-				("jdbc:sqlserver://javaflightdb.database.windows.net:1433;database=javaflightdb;user=javaflightdb@javaflightdb;password=CISproject22!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
-		try {
-	String data = "INSERT INTO UserAccounts (username,password,securityanswer) VALUES (?,?,?)";
-	PreparedStatement stat = connection.prepareStatement(data);
-
-	stat.setString(1, tf_username.getText());
-	stat.setString(2, tf_password.getText());
-	stat.setString(3, tf_security_answer.getText());
-	
-	System.out.println("inserted into user accts");
-	stat.executeUpdate();
+	public void addToUserAccounts (ActionEvent event) throws SQLException {
+			Connection connection = DriverManager.getConnection
+					("jdbc:sqlserver://javaflightdb.database.windows.net:1433;database=javaflightdb;user=javaflightdb@javaflightdb;password=CISproject22!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
+			try {
+			String data = "INSERT INTO UserAccounts (username,password,securityanswer) VALUES (?,?,?)";
+			PreparedStatement stat = connection.prepareStatement(data);
 		
-	//statement.setString(1, "hi");
-	//statement.setString(2, "hello");
-	//statement.setString(3, "bye");
+			
+			stat.setString(1, tf_username.getText());
+			stat.setString(2, tf_password.getText());
+			stat.setString(3, tf_security_answer.getText());
+		
+			System.out.println("inserted");
+			
+			stat.executeUpdate();
+			
+			
+			}catch (Exception e) {
+				e.printStackTrace();
+				e.getCause();
+			}
+			
+		
 
 	}
-	
-	catch (Exception e) {
-		e.printStackTrace();
-		e.getCause();
 	}
-	}
-}
-

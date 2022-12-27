@@ -60,15 +60,15 @@
                   <Font name="Book Antiqua" size="14.0" />
                </font>
             </Label>
-            <Button mnemonicParsing="false" text="Add" GridPane.columnIndex="2" GridPane.rowIndex="3">
+            <Button fx:id="button_add" mnemonicParsing="false" onAction="#add" text="Add" GridPane.columnIndex="2" GridPane.rowIndex="3">
                <font>
                   <Font name="Book Antiqua" size="12.0" />
                </font>
             </Button>
-            <TextField GridPane.columnIndex="1" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField GridPane.columnIndex="3" />
-            <TextField GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <TextField fx:id="tf_flightid" GridPane.columnIndex="1" />
+            <TextField fx:id="tf_fromcity" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="tf_capacity" GridPane.columnIndex="3" />
+            <TextField fx:id="tf_tocity" GridPane.columnIndex="3" GridPane.rowIndex="1" />
             <DatePicker GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <DatePicker GridPane.columnIndex="3" GridPane.rowIndex="2" />
             <GridPane hgap="10.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
@@ -80,11 +80,11 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <TextField promptText="Flight ID" />
-                  <Button mnemonicParsing="false" prefWidth="54.0" text="Delete" GridPane.columnIndex="1" />
+                  <TextField fx:id="tf_id_delete" promptText="Flight ID" />
+                  <Button fx:id="button_delete" mnemonicParsing="false" onAction="#delete" prefWidth="54.0" text="Delete" GridPane.columnIndex="1" />
                </children>
             </GridPane>
-            <Button mnemonicParsing="false" onAction="#back" text="Log Out" GridPane.columnIndex="3" GridPane.rowIndex="3">
+            <Button fx:id="button_back" mnemonicParsing="false" onAction="#back" text="Log Out" GridPane.columnIndex="3" GridPane.rowIndex="3">
                <font>
                   <Font name="Book Antiqua" size="12.0" />
                </font>
