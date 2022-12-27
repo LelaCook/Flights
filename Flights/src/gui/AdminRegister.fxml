@@ -26,6 +26,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <StackPane.margin>
             <Insets />
@@ -79,7 +80,7 @@
                   <Font name="Book Antiqua" size="14.0" />
                </font>
             </Label>
-            <Button fx:id="button_submit" mnemonicParsing="false" onAction="#goToLoginSubmit" prefHeight="26.0" prefWidth="79.0" text="Submit" translateX="155.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <Button fx:id="button_submit" mnemonicParsing="false" onAction="#AdminSubmit" prefHeight="26.0" prefWidth="79.0" text="Submit" translateX="155.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
                <font>
                   <Font name="Book Antiqua" size="14.0" />
                </font>
@@ -111,11 +112,12 @@
             <TextField fx:id="tf_password" promptText="Password" GridPane.columnIndex="3" GridPane.rowIndex="1" />
             <TextField fx:id="tf_lastname" promptText="Doe" GridPane.columnIndex="3" />
             <TextField fx:id="tf_security_answer" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-            <Button fx:id="button_back" mnemonicParsing="false" onAction="#goToLogin" prefHeight="26.0" prefWidth="56.0" text="Back" GridPane.columnIndex="3" GridPane.rowIndex="5">
+            <Button fx:id="button_back" mnemonicParsing="false" onAction="#goToLogin" prefHeight="26.0" prefWidth="56.0" text="Back" GridPane.columnIndex="3" GridPane.rowIndex="6">
                <font>
                   <Font name="Book Antiqua" size="14.0" />
                </font>
             </Button>
+            <Button fx:id="button_user_submit" mnemonicParsing="false" onAction="#UserSubmit" text="Button" GridPane.rowIndex="6" />
          </children>
       </GridPane>
    </children>
