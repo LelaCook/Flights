@@ -84,10 +84,10 @@ public class AdminController {
 		
 		statement.setString(1, tf_id_delete.getText());
 	
-
-		System.out.println("Deleted");
-		
 		statement.executeUpdate(); 
+		System.out.println("Deleted");
+		label_delete_message.setText("Flight Deleted!");
+		
 		
 
 		}catch (Exception e) {
@@ -104,4 +104,11 @@ public class AdminController {
 		stage.show();
 	}
 
+	public void refresh (ActionEvent event) throws IOException{
+		Parent root = FXMLLoader.load(getClass().getResource("../gui/Admin.fxml"));
+		Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		Scene scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
+	}
 }
