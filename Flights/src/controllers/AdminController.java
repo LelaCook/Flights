@@ -38,6 +38,10 @@ public class AdminController {
 	@FXML
 	private TextField dp_arrive;
 	@FXML
+	private TextField tf_arrivetime;
+	@FXML
+	private TextField tf_departtime;
+	@FXML
 	private Label label_add_message;
 	@FXML
 	private Label label_delete_message;
@@ -52,7 +56,7 @@ public class AdminController {
 					("jdbc:sqlserver://javaflightdb.database.windows.net:1433;database=javaflightdb;user=javaflightdb@javaflightdb;password=CISproject22!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
 			
 			try {
-			String b = "INSERT INTO FLIGHTS3 (flightid, capacity, tocity, fromcity, departdate, arrivedate) VALUES (?, ?, ?, ?, ?, ?)";
+			String b = "INSERT INTO FINALFLIGHTS (flightid, capacity, tocity, fromcity, departdate, arrivedate, arrivetime, departtime) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 			PreparedStatement statement = connection.prepareStatement(b);
 		
 			//wont work when i try to get tf from user (look below)
@@ -63,6 +67,8 @@ public class AdminController {
 			statement.setString(4, tf_fromcity.getText());
 			statement.setString(5, dp_depart.getText());
 			statement.setString(6, dp_arrive.getText());
+			statement.setString(7, tf_arrivetime.getText());
+			statement.setString(8, tf_departtime.getText());
 
 			statement.executeUpdate(); 
 			System.out.println("Inserted");
@@ -77,7 +83,7 @@ public class AdminController {
 				("jdbc:sqlserver://javaflightdb.database.windows.net:1433;database=javaflightdb;user=javaflightdb@javaflightdb;password=CISproject22!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
 		
 		try {
-		String b = "DELETE from Flightts where flightid = (?)";
+		String b = "DELETE from FINALFLIGHTS where flightid = (?)";
 		PreparedStatement statement = connection.prepareStatement(b);
 		
 		//wont work when i try to get tf from user (look below)

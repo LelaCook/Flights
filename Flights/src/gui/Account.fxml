@@ -26,12 +26,12 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#logOut" prefHeight="26.0" prefWidth="67.0" text="Log Out" GridPane.columnIndex="2">
+            <Button fx:id="button_logout" mnemonicParsing="false" onAction="#logout" prefHeight="26.0" prefWidth="67.0" text="Log Out" GridPane.columnIndex="2">
                <font>
                   <Font name="Book Antiqua" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="backButton" mnemonicParsing="false" onAction="#back" prefHeight="42.0" prefWidth="64.0" text="Back to Search" textAlignment="CENTER" wrapText="true">
+            <Button fx:id="button_back" mnemonicParsing="false" onAction="#back" prefHeight="42.0" prefWidth="64.0" text="Back to Search" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font name="Book Antiqua" size="12.0" />
                </font>
@@ -66,7 +66,7 @@
                   <Font name="Book Antiqua Bold" size="36.0" />
                </font>
             </Label>
-            <Button fx:id="refreshButton" mnemonicParsing="false" onAction="#refresh" prefHeight="26.0" prefWidth="63.0" text="Refresh" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <Button fx:id="button_refresh" mnemonicParsing="false" onAction="#refresh" prefHeight="26.0" prefWidth="63.0" text="Refresh" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <font>
                   <Font name="Book Antiqua" size="12.0" />
                </font>

@@ -26,28 +26,28 @@ import javafx.stage.Stage;
 public class SearchController {
 	
 	@FXML
-	private Button searchButton;
-	private Button logoutButton;
-	private Button accountButton;
-	private Button addButton;
-	private TableColumn<Flight, String> arriveColumn;
-	private TableColumn<Flight, String> departColumn;
-	private TableColumn<Flight, Integer> idColumn;
-	private TableColumn<Flight, Date> landingColumn;
-	private TableColumn<Flight, Date> takeOffColumn;
-	private TableView<?> table;
+	//private Button searchButton;
+	private Button button_logout;
+	private Button button_account;
+	//private Button addButton;
+	//private TableColumn<Flight, String> arriveColumn;
+	//private TableColumn<Flight, String> departColumn;
+	//private TableColumn<Flight, Integer> idColumn;
+	//private TableColumn<Flight, Date> landingColumn;
+	//private TableColumn<Flight, Date> takeOffColumn;
+	//private TableView<?> table;
 	
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
 	
-	ObservableList<Flight> listM;
+	//ObservableList<Flight> listM;
 	
-	int index = -1;
+	//int index = -1;
 	
-	Connection conn = null;
-	ResultSet rs = null;
-	PreparedStatement pst = null;
+	//Connection conn = null;
+	//ResultSet rs = null;
+	//PreparedStatement pst = null;
 	
 	/*
 	@Override

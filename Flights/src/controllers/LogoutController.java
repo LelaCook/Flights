@@ -15,8 +15,8 @@ import javafx.stage.Stage;
 public class LogoutController {
 	
 	@FXML
-	private Button yesButton;
-	private Button noButton;
+	private Button button_yes;
+	private Button button_no;
 	
 
 	private Stage stage;
@@ -24,7 +24,7 @@ public class LogoutController {
 	private Parent root;
 	
 	
-		public void logout(ActionEvent event) throws IOException {
+		public void yes(ActionEvent event) throws IOException {
 			Parent root = FXMLLoader.load(getClass().getResource("../gui/Login.fxml"));
 			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 			scene = new Scene(root);
@@ -32,4 +32,11 @@ public class LogoutController {
 			stage.show();
 	}
 
+		public void no(ActionEvent event) throws IOException {
+			Parent root = FXMLLoader.load(getClass().getResource("../gui/Searches.fxml"));
+			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+			scene = new Scene(root);
+			stage.setScene(scene);
+			stage.show();
+}
 }

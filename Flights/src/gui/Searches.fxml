@@ -47,7 +47,7 @@
                   <Font name="Book Antiqua" size="12.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#goToAccount" text="Go to Account" textAlignment="CENTER" translateY="50.0" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Button fx:id="button_account" mnemonicParsing="false" onAction="#goToAccount" text="Go to Account" textAlignment="CENTER" translateY="50.0" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font name="Book Antiqua" size="12.0" />
                </font>
@@ -77,11 +77,11 @@
             </GridPane>
             <TableView fx:id="table" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
               <columns>
-                <TableColumn fx:id="idColumn" prefWidth="75.0" text="ID" />
-                <TableColumn fx:id="departColumn" prefWidth="95.99994659423828" text="Depart" />
-                  <TableColumn fx:id="takeOffColumn" prefWidth="104.79998779296875" text="Take Off" />
-                  <TableColumn fx:id="arriveColumn" prefWidth="123.20001220703125" text="Arrive" />
-                  <TableColumn fx:id="landingColumn" prefWidth="122.39996337890625" text="Landing" />
+                <TableColumn fx:id="idColumn" prefWidth="75.0" text="Flight ID" />
+                <TableColumn fx:id="arriveDateColumn" prefWidth="95.99994659423828" text="Arrive Date" />
+                  <TableColumn fx:id="arriveTimeColumn" prefWidth="104.79998779296875" text="Arrive Time" />
+                  <TableColumn fx:id="departDateColumn" prefWidth="123.20001220703125" text="Depart Date" />
+                  <TableColumn fx:id="departTimeColumn" prefWidth="122.39996337890625" text="Depart Time" />
               </columns>
             </TableView>
          </children>
