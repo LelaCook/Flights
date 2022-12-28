@@ -4,6 +4,7 @@ import java.awt.Window;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -59,15 +60,15 @@ public class ForgotController {
 						if (queryResult.getInt(1)==1) {
 							Connection connection2 = DriverManager.getConnection
 									("jdbc:sqlserver://javaflightdb.database.windows.net:1433;database=javaflightdb;user=javaflightdb@javaflightdb;password=CISproject22!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
-							Statement statement1 = connection2.createStatement();
 							String verifyAnswer2 = "SELECT password FROM UserAccounts WHERE username = '" + tf_username.getText() + "' AND securityanswer = '" + tf_security_answer.getText() + "'";
-
-							ResultSet resultSet = statement1.executeQuery
-									(verifyAnswer2);
+							Statement statement1 = connection2.createStatement();
 							
-							//ResultSet newQueryResult = statement.executeQuery(verifyAnswer2);
-							label_password_message.setText(resultSet.getString(1));
+							ResultSet newQueryResult = statement1.executeQuery(verifyAnswer2);
+					
+							//String b  = newQueryResult.getString();
 							
+							label_password_message.setText(newQueryResult.toString());
+						
 					
 					// if not, print error message	
 					}else {

@@ -42,6 +42,7 @@
                   <TextField fx:id="tf_security_answer" alignment="CENTER" promptText="Answer" GridPane.columnIndex="1" />
                   <TextField fx:id="tf_username" promptText="EnterUsername" />
                   <Button fx:id="button_enter" mnemonicParsing="false" onAction="#revealPassword" prefHeight="26.0" prefWidth="62.0" text="Enter" translateX="-30.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label fx:id="label_password_message" textFill="#e80303" GridPane.rowIndex="1" />
                </children>
             </GridPane>
             <Label prefHeight="86.0" prefWidth="279.0" text="Where were you born?" textAlignment="CENTER" wrapText="true">
