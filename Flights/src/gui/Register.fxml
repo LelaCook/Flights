@@ -36,47 +36,47 @@
          <children>
             <Label text="First Name:">
                <font>
-                  <Font name="Book Antiqua" size="14.0" />
+                  <Font name="Impact" size="17.0" />
                </font>
             </Label>
             <Label text="Last Name:" GridPane.columnIndex="2">
                <font>
-                  <Font name="Book Antiqua" size="14.0" />
+                  <Font name="Impact" size="17.0" />
                </font>
             </Label>
             <Label text="Username:" GridPane.rowIndex="1">
                <font>
-                  <Font name="Book Antiqua" size="14.0" />
+                  <Font name="Impact" size="17.0" />
                </font>
             </Label>
-            <Label text="Password" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <Label text="Password:" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <font>
-                  <Font name="Book Antiqua" size="14.0" />
+                  <Font name="Impact" size="17.0" />
                </font>
             </Label>
-            <Label text="Social Security Number:" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="2">
+            <Label text="SSN:" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="2">
                <font>
-                  <Font name="Book Antiqua" size="14.0" />
+                  <Font name="Impact" size="17.0" />
                </font>
             </Label>
             <Label text="Email:" GridPane.rowIndex="2">
                <font>
-                  <Font name="Book Antiqua" size="14.0" />
+                  <Font name="Impact" size="17.0" />
                </font>
             </Label>
             <Label text="Address:" GridPane.rowIndex="3">
                <font>
-                  <Font name="Book Antiqua" size="14.0" />
+                  <Font name="Impact" size="17.0" />
                </font>
             </Label>
             <Label text="Security Question: " wrapText="true" GridPane.rowIndex="4">
                <font>
-                  <Font name="Book Antiqua" size="14.0" />
+                  <Font name="Impact" size="17.0" />
                </font>
             </Label>
             <Label text="Answer:" GridPane.columnIndex="2" GridPane.rowIndex="4">
                <font>
-                  <Font name="Book Antiqua" size="14.0" />
+                  <Font name="Impact" size="17.0" />
                </font>
             </Label>
             <Button fx:id="button_submit" mnemonicParsing="false" onAction="#goToLoginSubmit" prefHeight="26.0" prefWidth="79.0" text="Submit" translateX="155.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
@@ -99,7 +99,7 @@
             </GridPane>
             <Label text="Where were you born?" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <font>
-                  <Font name="Book Antiqua" size="18.0" />
+                  <Font name="Impact" size="20.0" />
                </font>
             </Label>
             <TextField fx:id="tf_firstname" promptText="John" GridPane.columnIndex="1" />

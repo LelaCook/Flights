@@ -3,17 +3,21 @@ package controllers;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Date;
 import java.util.ResourceBundle;
 
 import application.Flight;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -23,11 +27,26 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-public class SearchController {
+public class SearchController implements Initializable {
 	
 	@FXML
+	private TableView<FlightModel> table;
+	@FXML
+	private TableColumn<FlightModel, Integer> idColumn;
+	@FXML
+	private TableColumn<FlightModel, String> arriveDateColumn;
+	@FXML
+	private TableColumn<FlightModel, String> arriveTimeColumn;
+	@FXML
+	private TableColumn<FlightModel, String> departDateColumn;
+	@FXML
+	private TableColumn<FlightModel, String> departTimeColumn;
+	@FXML
+	
+	
 	//private Button searchButton;
 	private Button button_logout;
+	@FXML
 	private Button button_account;
 	//private Button addButton;
 	//private TableColumn<Flight, String> arriveColumn;
@@ -40,6 +59,42 @@ public class SearchController {
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
+	
+	ObservableList <FlightModel> flightModelObservableList = FXCollections.observableArrayList();
+	
+	
+	@Override
+	public void initialize(URL url, ResourceBundle resource) {
+		
+		Connection connection = DriverManager.getConnection
+				("jdbc:sqlserver://javaflightdb.database.windows.net:1433;database=javaflightdb;user=javaflightdb@javaflightdb;password=CISproject22!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
+		
+		String displayFlights = "SELECT flightid, arrivedate, arrivetime, departdate, departtime FROM FINALFLIGHTS"; 
+		
+		
+		try {
+			Statement statement = connection.createStatement();
+			ResultSet queryResult = statement.executeQuery(displayFlights);
+		
+			while (queryResult.next()) {
+				Integer queryFlightid = queryResult.getInt("flightid");
+				String queryArriveDate = queryResult.getString("arrivedate");
+				String queryArriveTime = queryResult.getString("arrivetime");
+				String queryDepartDate = queryResult.getString("departdate");
+				String queryDepartTime = queryResult.getString("departtime");
+
+				
+				
+				flightModelObservableList.add(new FlightModel(queryFlightid,queryArriveDate,queryArriveTime,queryDepartDate,queryDepartTime));
+			}
+			
+			
+					
+		
+		
+		}catch {
+	}
+	
 	
 	//ObservableList<Flight> listM;
 	

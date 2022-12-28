@@ -47,7 +47,7 @@
             </GridPane>
             <Label prefHeight="86.0" prefWidth="279.0" text="Where were you born?" textAlignment="CENTER" wrapText="true">
                <font>
-                  <Font name="Book Antiqua" size="30.0" />
+                  <Font name="Impact" size="30.0" />
                </font>
             </Label>
          </children>

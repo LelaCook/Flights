@@ -50,7 +50,7 @@
                <children>
                   <Label prefHeight="18.0" prefWidth="98.0" text="Delete Flight:" GridPane.columnIndex="1">
                      <font>
-                        <Font name="Book Antiqua" size="14.0" />
+                        <Font name="Impact" size="16.0" />
                      </font>
                   </Label>
                   <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#delete" text="Enter" GridPane.columnIndex="3">
@@ -63,7 +63,7 @@
             </GridPane>
             <Label text="Your Flights" translateX="110.0" GridPane.columnIndex="1">
                <font>
-                  <Font name="Book Antiqua Bold" size="36.0" />
+                  <Font name="Impact" size="41.0" />
                </font>
             </Label>
             <Button fx:id="button_refresh" mnemonicParsing="false" onAction="#refresh" prefHeight="26.0" prefWidth="63.0" text="Refresh" GridPane.columnIndex="2" GridPane.rowIndex="1">
@@ -73,11 +73,11 @@
             </Button>
             <TableView prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <columns>
-                  <TableColumn prefWidth="75.0" text="ID" />
-                  <TableColumn prefWidth="73.5999755859375" text="Depart" />
-                  <TableColumn prefWidth="91.20001220703125" text="Take Off" />
-                  <TableColumn prefWidth="91.20002746582031" text="Arrive" />
-                  <TableColumn prefWidth="100.79998779296875" text="Landing" />
+                  <TableColumn prefWidth="75.0" text="Flight ID" />
+                  <TableColumn prefWidth="73.5999755859375" text="Arrive Date" />
+                  <TableColumn prefWidth="91.20001220703125" text="Arrive Time" />
+                  <TableColumn prefWidth="91.20002746582031" text="Depart Date" />
+                  <TableColumn prefWidth="100.79998779296875" text="Depart Time" />
                </columns>
             </TableView>
          </children>

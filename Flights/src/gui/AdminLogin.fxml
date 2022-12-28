@@ -25,9 +25,9 @@
             <RowConstraints maxHeight="120.79996337890623" minHeight="10.0" prefHeight="82.39999999999998" valignment="TOP" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="Admin Log In">
+            <Label text="Admin Login">
                <font>
-                  <Font name="Book Antiqua" size="64.0" />
+                  <Font name="Impact" size="54.0" />
                </font>
             </Label>
             <GridPane hgap="10.0" vgap="10.0" GridPane.rowIndex="1">
@@ -42,12 +42,12 @@
                <children>
                   <Label text="Username: ">
                      <font>
-                        <Font name="Book Antiqua" size="24.0" />
+                        <Font name="Impact" size="27.0" />
                      </font>
                   </Label>
                   <Label text="Password: " GridPane.rowIndex="1">
                      <font>
-                        <Font name="Book Antiqua" size="24.0" />
+                        <Font name="Impact" size="27.0" />
                      </font>
                   </Label>
                   <PasswordField fx:id="tf_password" promptText="password" GridPane.columnIndex="1" GridPane.rowIndex="1" />
@@ -71,7 +71,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Button fx:id="loginButton" mnemonicParsing="false" onAction="#login" prefHeight="28.0" prefWidth="130.0" text="Log In">
+                  <Button fx:id="loginButton" mnemonicParsing="false" onAction="#login" prefHeight="28.0" prefWidth="130.0" text="Log In" textFill="#171717">
                      <font>
                         <Font name="Book Antiqua" size="14.0" />
                      </font>

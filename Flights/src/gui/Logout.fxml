@@ -21,7 +21,7 @@
          <children>
             <Label text="Are you sure?">
                <font>
-                  <Font name="Book Antiqua" size="36.0" />
+                  <Font name="Impact" size="36.0" />
                </font>
             </Label>
             <GridPane prefHeight="100.0" prefWidth="258.0" GridPane.rowIndex="1">
@@ -46,7 +46,7 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Button fx:id="button_yes" mnemonicParsing="false" onAction="#yes" text="YES" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Button fx:id="button_yes" mnemonicParsing="false" onAction="#yes" text="YES" textFill="#ee0303" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                      </children>
                   </GridPane>
                   <GridPane GridPane.columnIndex="1">
@@ -61,7 +61,7 @@
                         <RowConstraints maxHeight="23.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Button fx:id="button_no" mnemonicParsing="false" onAction="#no" text="NO" GridPane.rowIndex="2" />
+                        <Button fx:id="button_no" mnemonicParsing="false" onAction="#no" text="NO" textFill="#07d051" GridPane.rowIndex="2" />
                      </children>
                   </GridPane>
                </children>

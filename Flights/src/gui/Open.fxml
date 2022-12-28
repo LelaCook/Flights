@@ -19,14 +19,14 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="button_start" blendMode="SRC_ATOP" mnemonicParsing="false" onAction="#start" text="Start" GridPane.rowIndex="1">
+            <Button fx:id="button_start" blendMode="SRC_ATOP" mnemonicParsing="false" onAction="#start" text="Login" GridPane.rowIndex="1">
                <font>
                   <Font name="Book Antiqua" size="24.0" />
                </font>
             </Button>
             <Label text="Welcome to Flights R US!">
                <font>
-                  <Font name="Heiti TC Light" size="48.0" />
+                  <Font name="Impact" size="48.0" />
                </font>
             </Label>
          </children>

@@ -18,6 +18,7 @@ public class Main extends Application {
 		Parent root = FXMLLoader.load(getClass().getResource("../gui/Open.fxml"));
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+		primaryStage.setTitle("Flights R Us");
 		primaryStage.setScene(scene);
 		primaryStage.show();
 		
