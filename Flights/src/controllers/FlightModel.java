@@ -2,12 +2,16 @@ package controllers;
 
 public class FlightModel {
 	Integer flightid;
-	String arrivedate,arrivetime,departdate, departtime;
+	String tocity, arrivedate,arrivetime,departdate, departtime;
 
 
 
-	public FlightModel (Integer flightid, String arrivedate, String arrivetime,String departdate, String departtime) {
+
+
+
+	public FlightModel (Integer flightid, String tocity, String arrivedate, String arrivetime,String departdate, String departtime) {
 		this.flightid = flightid;
+		this.tocity = tocity;
 		this.arrivedate = arrivedate;
 		this.arrivetime = arrivetime;
 		this.departdate = departdate;
@@ -19,6 +23,14 @@ public class FlightModel {
 		return flightid;
 		
 	}
+	
+
+	public String getToCity () {
+		return tocity;
+		
+	}
+	
+	
 	public String getArriveDate () {
 		return arrivedate;
 		
@@ -44,6 +56,13 @@ public class FlightModel {
 		this.flightid = flightid;
 	
 	}
+	public void setToCity (String tocity) {
+		this.tocity = tocity;
+	
+	}
+	
+	
+	
 	public void setArriveDate (String arrivedate) {
 		this.arrivedate = arrivedate;
 	

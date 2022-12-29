@@ -13,7 +13,7 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import application.Flight;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -32,12 +32,17 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
+ 
+
 public class SearchController implements Initializable {
+	
 	
 	@FXML
 	private TableView<FlightModel> table;
 	@FXML
 	private TableColumn<FlightModel, Integer> idColumn;
+	@FXML
+	private TableColumn<FlightModel, String> toCityColumn;
 	@FXML
 	private TableColumn<FlightModel, String> arriveDateColumn;
 	@FXML
@@ -67,27 +72,30 @@ public class SearchController implements Initializable {
 	@Override
 	public void initialize(URL url, ResourceBundle resource) {
 		
-		Connection connection = DriverManager.getConnection
-				("jdbc:sqlserver://javaflightdb.database.windows.net:1433;database=javaflightdb;user=javaflightdb@javaflightdb;password=CISproject22!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
-		
-		String displayFlights = "SELECT flightid, arrivedate, arrivetime, departdate, departtime FROM FINALFLIGHTS"; 
-		
+			
 		
 		try {
+			Connection connection = DriverManager.getConnection
+					("jdbc:sqlserver://javaflightdb.database.windows.net:1433;database=javaflightdb;user=javaflightdb@javaflightdb;password=CISproject22!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
+		
+			String displayFlights = "SELECT flightid, tocity, arrivedate, arrivetime, departdate, departtime FROM FINALFLIGHTS2"; 
+		
 			Statement statement = connection.createStatement();
 			ResultSet queryResult = statement.executeQuery(displayFlights);
 		
 			while (queryResult.next()) {
 				Integer queryFlightid = queryResult.getInt("flightid");
+				String queryToCity = queryResult.getString("tocity");
 				String queryArriveDate = queryResult.getString("arrivedate");
 				String queryArriveTime = queryResult.getString("arrivetime");
 				String queryDepartDate = queryResult.getString("departdate");
 				String queryDepartTime = queryResult.getString("departtime");
 
-				flightModelObservableList.add(new FlightModel(queryFlightid,queryArriveDate,queryArriveTime,queryDepartDate,queryDepartTime));
+				flightModelObservableList.add(new FlightModel(queryFlightid, queryToCity, queryArriveDate, queryArriveTime, queryDepartDate, queryDepartTime));
 			}
 			
 			idColumn.setCellValueFactory(new PropertyValueFactory<>("flightid"));
+			toCityColumn.setCellValueFactory(new PropertyValueFactory<>("tocity"));
 			arriveDateColumn.setCellValueFactory(new PropertyValueFactory<>("arrivedate"));
 			arriveTimeColumn.setCellValueFactory(new PropertyValueFactory<>("arrivetime"));
 			departDateColumn.setCellValueFactory(new PropertyValueFactory<>("departdate"));
@@ -95,14 +103,28 @@ public class SearchController implements Initializable {
 			
 			table.setItems(flightModelObservableList);
 			
-			FilteredList<FlightModel> filteredData = new FilteredList<>(flightModelObservableList, b -> true);
+		
+		} catch (SQLException e){
+			System.out.print("Hi");
 			
-			//start 
+			Logger.getLogger(SearchController.class.getName()).log(Level.SEVERE, null, e);
+			e.printStackTrace();
+			
+		}
+	}
+	
+	
+	
+	
+	
+	/*	FilteredList<FlightModel> filteredData = new FilteredList<>(flightModelObservableList, b -> true);
+			
+			start 
 			arriveText.textProperty().addListener((observable, aldValue, newValue) -> {
 				filteredData.setPredicate(productSearchModel -> {
 					
 					if(newValue.isEmpty() || newValue.isBlank() || newValue == null) {
-						return true;
+					return true;
 					}
 					
 					String searchKeyboard = newValue.toLowerCase();
@@ -136,20 +158,12 @@ public class SearchController implements Initializable {
 			sortedData.comparatorProperty().bind(table.comparatorProperty());
 			
 			table.setItems(sortedData);
-			
-			
-			
-		} catch {
-			System.out.print("Hi");
-			/*
-			Logger.getLogger(SearchController.class.getName()).log(Level.SEVERE, null, e);
-			e.printStackTrace();
 			*/
-		}
-	}
+			
+			
 	
 	
-	
+
 	
 	public void logout(ActionEvent event) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("../gui/Logout.fxml"));
