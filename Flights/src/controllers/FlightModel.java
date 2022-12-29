@@ -1,32 +1,27 @@
 package controllers;
 
 public class FlightModel {
-	Integer flightid;
-	String tocity, fromcity, arrivedate,arrivetime,departdate, departtime;
+	
+	String flightid, tocity, arrivedate,arrivetime,fromcity, departdate, departtime;
 
-	public FlightModel (Integer flightid, String tocity, String fromcity, String arrivedate, String arrivetime,String departdate, String departtime) {
+	public FlightModel (String flightid, String tocity, String arrivedate, String arrivetime, String fromcity, String departdate, String departtime) {
 		this.flightid = flightid;
 		this.tocity = tocity;
-		this.fromcity = fromcity;
 		this.arrivedate = arrivedate;
 		this.arrivetime = arrivetime;
+		this.fromcity = fromcity;
 		this.departdate = departdate;
 		this.departtime = departtime;
 	
 }
 
-	public Integer getFlightid () {
+	public String getFlightid () {
 		return flightid;
 		
 	}
 	
 	public String getToCity () {
 		return tocity;
-		
-	}
-	
-	public String getFromCity () {
-		return fromcity;
 		
 	}
 	
@@ -37,6 +32,11 @@ public class FlightModel {
 	
 	public String getArriveTime () {
 		return arrivetime;
+	}
+	
+	public String getFromCity () {
+		return fromcity;
+		
 	}
 	
 	public String getDepartDate () {
@@ -52,7 +52,7 @@ public class FlightModel {
 	
 	
 	
-	public void setFlightid (Integer flightid) {
+	public void setFlightid (String flightid) {
 		this.flightid = flightid;
 	
 	}
@@ -62,17 +62,17 @@ public class FlightModel {
 	
 	}
 	
-	public void setFromCity (String fromcity) {
-		this.fromcity = fromcity;
-	
-	}
-	
 	public void setArriveDate (String arrivedate) {
 		this.arrivedate = arrivedate;
 	
 	}
 	public void setArriveTime (String arrivetime) {
 		this.arrivetime = arrivetime;
+	
+	}
+
+	public void setFromCity (String fromcity) {
+		this.fromcity = fromcity;
 	
 	}
 	

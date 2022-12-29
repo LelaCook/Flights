@@ -40,7 +40,7 @@ public class SearchController implements Initializable {
 	@FXML
 	private TableView<FlightModel> table;
 	@FXML
-	private TableColumn<FlightModel, Integer> idColumn;
+	private TableColumn<FlightModel, String> idColumn;
 	@FXML
 	private TableColumn<FlightModel, String> toCityColumn;
 	@FXML
@@ -80,32 +80,35 @@ public class SearchController implements Initializable {
 			Connection connection = DriverManager.getConnection
 					("jdbc:sqlserver://javaflightdb.database.windows.net:1433;database=javaflightdb;user=javaflightdb@javaflightdb;password=CISproject22!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
 		
-			String displayFlights = "SELECT flightid, tocity, arrivedate, arrivetime, departdate, departtime FROM FINALFLIGHTS2"; 
+			String displayFlights = "SELECT flightid, tocity, arrivedate, arrivetime, fromcity, departdate, departtime FROM FINALFLIGHTS2"; 
 		
 			Statement statement = connection.createStatement();
 			ResultSet queryResult = statement.executeQuery(displayFlights);
 		
-			idColumn.setCellValueFactory(new PropertyValueFactory<FlightModel, Integer>("flightid"));
-			fromCityColumn.setCellValueFactory(new PropertyValueFactory<FlightModel, String>("fromcity"));
-			departDateColumn.setCellValueFactory(new PropertyValueFactory<FlightModel, String>("departdate"));
-			departTimeColumn.setCellValueFactory(new PropertyValueFactory<FlightModel, String>("departtime"));
-			toCityColumn.setCellValueFactory(new PropertyValueFactory<FlightModel, String>("tocity"));
-			arriveDateColumn.setCellValueFactory(new PropertyValueFactory<FlightModel, String>("arrivedate"));
-			arriveTimeColumn.setCellValueFactory(new PropertyValueFactory<FlightModel, String>("arrivetime"));
-		
+			
 			while (queryResult.next()) {
 			
-				Integer queryFlightid = queryResult.getInt("flightid");
-				String queryFromCity = queryResult.getString("fromcity");
-				String queryDepartDate = queryResult.getString("departdate");
-				String queryDepartTime = queryResult.getString("departtime");
+				String queryFlightid = queryResult.getString("flightid");
 				String queryToCity = queryResult.getString("tocity");
 				String queryArriveDate = queryResult.getString("arrivedate");
 				String queryArriveTime = queryResult.getString("arrivetime");
-
-				flightModelObservableList.add(new FlightModel(queryFlightid, queryFromCity,  queryDepartDate, queryDepartTime, queryToCity, queryArriveDate, queryArriveTime));
+				String queryFromCity = queryResult.getString("fromcity");
+				String queryDepartDate = queryResult.getString("departdate");
+				String queryDepartTime = queryResult.getString("departtime");
+				
+				
+				flightModelObservableList.add(new FlightModel(queryFlightid,queryToCity, queryArriveDate, queryArriveTime, queryFromCity, queryDepartDate, queryDepartTime));
 			}
 			
+			idColumn.setCellValueFactory(new PropertyValueFactory<FlightModel, String>("flightid"));
+			toCityColumn.setCellValueFactory(new PropertyValueFactory<FlightModel, String>("tocity"));
+			arriveDateColumn.setCellValueFactory(new PropertyValueFactory<FlightModel, String>("arrivedate"));
+			arriveTimeColumn.setCellValueFactory(new PropertyValueFactory<FlightModel, String>("arrivetime"));
+			fromCityColumn.setCellValueFactory(new PropertyValueFactory<FlightModel, String>("fromcity"));
+			departDateColumn.setCellValueFactory(new PropertyValueFactory<FlightModel, String>("departdate"));
+			departTimeColumn.setCellValueFactory(new PropertyValueFactory<FlightModel, String>("departtime"));
+		
+		
 			
 			table.setItems(flightModelObservableList);
 			
