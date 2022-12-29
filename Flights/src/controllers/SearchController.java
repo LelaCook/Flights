@@ -83,7 +83,15 @@ public class SearchController implements Initializable {
 			Statement statement = connection.createStatement();
 			ResultSet queryResult = statement.executeQuery(displayFlights);
 		
+			idColumn.setCellValueFactory(new PropertyValueFactory<FlightModel, Integer>("flightid"));
+			toCityColumn.setCellValueFactory(new PropertyValueFactory<FlightModel, String>("tocity"));
+			arriveDateColumn.setCellValueFactory(new PropertyValueFactory<FlightModel, String>("arrivedate"));
+			arriveTimeColumn.setCellValueFactory(new PropertyValueFactory<FlightModel, String>("arrivetime"));
+			departDateColumn.setCellValueFactory(new PropertyValueFactory<FlightModel, String>("departdate"));
+			departTimeColumn.setCellValueFactory(new PropertyValueFactory<FlightModel, String>("departtime"));
+		
 			while (queryResult.next()) {
+			
 				Integer queryFlightid = queryResult.getInt("flightid");
 				String queryToCity = queryResult.getString("tocity");
 				String queryArriveDate = queryResult.getString("arrivedate");
@@ -94,12 +102,6 @@ public class SearchController implements Initializable {
 				flightModelObservableList.add(new FlightModel(queryFlightid, queryToCity, queryArriveDate, queryArriveTime, queryDepartDate, queryDepartTime));
 			}
 			
-			idColumn.setCellValueFactory(new PropertyValueFactory<>("flightid"));
-			toCityColumn.setCellValueFactory(new PropertyValueFactory<>("tocity"));
-			arriveDateColumn.setCellValueFactory(new PropertyValueFactory<>("arrivedate"));
-			arriveTimeColumn.setCellValueFactory(new PropertyValueFactory<>("arrivetime"));
-			departDateColumn.setCellValueFactory(new PropertyValueFactory<>("departdate"));
-			departTimeColumn.setCellValueFactory(new PropertyValueFactory<>("departtime"));
 			
 			table.setItems(flightModelObservableList);
 			

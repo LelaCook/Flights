@@ -68,6 +68,30 @@ public class RegisterController {
 		catch (Exception e) {
 			e.printStackTrace();
 			e.getCause();			
+		
+		} 
+		try {
+		String a = "CREATE TABLE"' + tf_ (flightid varchar(20))" ;
+				//(flightid VARCHAR(20) INT NOT NULL, fromcity VARCHAR(20) INT NOT NULL)";
+		Statement b = connection.createStatement();
+	
+		b.executeUpdate(a);
+		//wont work when i try to get tf from user (look below)
+		
+		//statement.setString(1, "hi");
+		//statement.setString(2, "hello");
+		//statement.setString(3, "bye");
+		
+		System.out.println("inserted");
+		
+		}
+		
+		catch (SQLException e) {
+			e.printStackTrace();
+			e.getCause();
+			
+			
+			
 		}
 	}
 }
