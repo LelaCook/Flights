@@ -48,6 +48,8 @@ public class SearchController implements Initializable {
 	@FXML
 	private TableColumn<FlightModel, String> arriveTimeColumn;
 	@FXML
+	private TableColumn<FlightModel, String> fromCityColumn;
+	@FXML
 	private TableColumn<FlightModel, String> departDateColumn;
 	@FXML
 	private TableColumn<FlightModel, String> departTimeColumn;
@@ -84,22 +86,24 @@ public class SearchController implements Initializable {
 			ResultSet queryResult = statement.executeQuery(displayFlights);
 		
 			idColumn.setCellValueFactory(new PropertyValueFactory<FlightModel, Integer>("flightid"));
+			fromCityColumn.setCellValueFactory(new PropertyValueFactory<FlightModel, String>("fromcity"));
+			departDateColumn.setCellValueFactory(new PropertyValueFactory<FlightModel, String>("departdate"));
+			departTimeColumn.setCellValueFactory(new PropertyValueFactory<FlightModel, String>("departtime"));
 			toCityColumn.setCellValueFactory(new PropertyValueFactory<FlightModel, String>("tocity"));
 			arriveDateColumn.setCellValueFactory(new PropertyValueFactory<FlightModel, String>("arrivedate"));
 			arriveTimeColumn.setCellValueFactory(new PropertyValueFactory<FlightModel, String>("arrivetime"));
-			departDateColumn.setCellValueFactory(new PropertyValueFactory<FlightModel, String>("departdate"));
-			departTimeColumn.setCellValueFactory(new PropertyValueFactory<FlightModel, String>("departtime"));
 		
 			while (queryResult.next()) {
 			
 				Integer queryFlightid = queryResult.getInt("flightid");
+				String queryFromCity = queryResult.getString("fromcity");
+				String queryDepartDate = queryResult.getString("departdate");
+				String queryDepartTime = queryResult.getString("departtime");
 				String queryToCity = queryResult.getString("tocity");
 				String queryArriveDate = queryResult.getString("arrivedate");
 				String queryArriveTime = queryResult.getString("arrivetime");
-				String queryDepartDate = queryResult.getString("departdate");
-				String queryDepartTime = queryResult.getString("departtime");
 
-				flightModelObservableList.add(new FlightModel(queryFlightid, queryToCity, queryArriveDate, queryArriveTime, queryDepartDate, queryDepartTime));
+				flightModelObservableList.add(new FlightModel(queryFlightid, queryFromCity,  queryDepartDate, queryDepartTime, queryToCity, queryArriveDate, queryArriveTime));
 			}
 			
 			
