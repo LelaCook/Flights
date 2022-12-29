@@ -10,10 +10,14 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Date;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import application.Flight;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -24,6 +28,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
@@ -41,20 +46,16 @@ public class SearchController implements Initializable {
 	private TableColumn<FlightModel, String> departDateColumn;
 	@FXML
 	private TableColumn<FlightModel, String> departTimeColumn;
-	@FXML
-	
+
+	private TextField arriveText;  
+	private TextField departText;
+	private TextField fromText;
+	private TextField toText;
 	
 	//private Button searchButton;
 	private Button button_logout;
 	@FXML
 	private Button button_account;
-	//private Button addButton;
-	//private TableColumn<Flight, String> arriveColumn;
-	//private TableColumn<Flight, String> departColumn;
-	//private TableColumn<Flight, Integer> idColumn;
-	//private TableColumn<Flight, Date> landingColumn;
-	//private TableColumn<Flight, Date> takeOffColumn;
-	//private TableView<?> table;
 	
 	private Stage stage;
 	private Scene scene;
@@ -83,42 +84,72 @@ public class SearchController implements Initializable {
 				String queryDepartDate = queryResult.getString("departdate");
 				String queryDepartTime = queryResult.getString("departtime");
 
-				
-				
 				flightModelObservableList.add(new FlightModel(queryFlightid,queryArriveDate,queryArriveTime,queryDepartDate,queryDepartTime));
 			}
 			
+			idColumn.setCellValueFactory(new PropertyValueFactory<>("flightid"));
+			arriveDateColumn.setCellValueFactory(new PropertyValueFactory<>("arrivedate"));
+			arriveTimeColumn.setCellValueFactory(new PropertyValueFactory<>("arrivetime"));
+			departDateColumn.setCellValueFactory(new PropertyValueFactory<>("departdate"));
+			departTimeColumn.setCellValueFactory(new PropertyValueFactory<>("departtime"));
 			
+			table.setItems(flightModelObservableList);
+			
+			FilteredList<FlightModel> filteredData = new FilteredList<>(flightModelObservableList, b -> true);
+			
+			//start 
+			arriveText.textProperty().addListener((observable, aldValue, newValue) -> {
+				filteredData.setPredicate(productSearchModel -> {
 					
-		
-		
-		}catch {
+					if(newValue.isEmpty() || newValue.isBlank() || newValue == null) {
+						return true;
+					}
+					
+					String searchKeyboard = newValue.toLowerCase();
+					
+					if (FlightModel.getArriveDate().toLowerCase().indexOf(searchKeyboard) > -1) {
+						
+					} else 
+						return false;
+				});
+			});
+			// end
+			
+			departText.textProperty().addListener((observable, aldValue, newValue) -> {
+				filteredData.setPredicate(productSearchModel -> {
+					
+					if(newValue.isEmpty() || newValue.isBlank() || newValue == null) {
+						return true;
+					}
+					
+					String searchKeyboard = newValue.toLowerCase();
+					
+					if (FlightModel.getDepartDate().toLowerCase().indexOf(searchKeyboard) > -1) {
+						
+					} else 
+						return false;
+				});
+			});
+			
+			SortedList<FlightModel> sortedData = SortedList<>(filteredData);
+			
+			sortedData.comparatorProperty().bind(table.comparatorProperty());
+			
+			table.setItems(sortedData);
+			
+			
+			
+		} catch {
+			System.out.print("Hi");
+			/*
+			Logger.getLogger(SearchController.class.getName()).log(Level.SEVERE, null, e);
+			e.printStackTrace();
+			*/
+		}
 	}
 	
 	
-	//ObservableList<Flight> listM;
 	
-	//int index = -1;
-	
-	//Connection conn = null;
-	//ResultSet rs = null;
-	//PreparedStatement pst = null;
-	
-	/*
-	@Override
-	public void initialize(URL url, ResourceBundle rd) {
-		
-		arriveColumn.setCellValueFactory(new PropertyValueFactory<Flight, String>("arrive"));
-		departColumn.setCellValueFactory(new PropertyValueFactory<Flight, String>("depart"));
-		idColumn.setCellValueFactory(new PropertyValueFactory<Flight, Integer>("id"));
-		landingColumn.setCellValueFactory(new PropertyValueFactory<Flight, Date>("landing"));
-		takeOffColumn.setCellValueFactory(new PropertyValueFactory<Flight, Date>("take off"));
-		
-		listM = mysqlconnect.getDataFlight();
-		table.setItems(listM);
-		
-	}
-	*/
 	
 	public void logout(ActionEvent event) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("../gui/Logout.fxml"));

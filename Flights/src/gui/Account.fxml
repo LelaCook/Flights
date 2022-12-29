@@ -73,11 +73,13 @@
             </Button>
             <TableView prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <columns>
-                  <TableColumn prefWidth="75.0" text="Flight ID" />
-                  <TableColumn prefWidth="73.5999755859375" text="Arrive Date" />
-                  <TableColumn prefWidth="91.20001220703125" text="Arrive Time" />
-                  <TableColumn prefWidth="91.20002746582031" text="Depart Date" />
-                  <TableColumn prefWidth="100.79998779296875" text="Depart Time" />
+                  <TableColumn prefWidth="55.20001298189163" text="Flight ID" />
+                  <TableColumn prefWidth="32.800045013427734" text="City" />
+                  <TableColumn prefWidth="79.20001220703125" text="Depart Time" />
+                  <TableColumn prefWidth="76.0" text="Depart Date" />
+                  <TableColumn prefWidth="39.19996643066406" text="City" />
+                  <TableColumn prefWidth="71.20001220703125" text="Arrive Time" />
+                  <TableColumn prefWidth="73.59996337890624" text="Arrive Date" />
                </columns>
             </TableView>
          </children>
