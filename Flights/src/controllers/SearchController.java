@@ -119,7 +119,7 @@ public class SearchController implements Initializable {
 	
 	/*	FilteredList<FlightModel> filteredData = new FilteredList<>(flightModelObservableList, b -> true);
 			
-			start 
+			//start 
 			arriveText.textProperty().addListener((observable, aldValue, newValue) -> {
 				filteredData.setPredicate(productSearchModel -> {
 					
