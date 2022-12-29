@@ -65,12 +65,9 @@ public class RegisterController {
 		}
 		
 		
-		
-		
-		
 		catch (Exception e) {
 			e.printStackTrace();
-			e.getCause();
+			e.getCause();			
 		}
 	}
 }

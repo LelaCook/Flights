@@ -26,7 +26,11 @@ public class ForgotController {
 	@FXML
 	private TextField tf_security_answer;
 	@FXML
-	private Label label_password_message;
+	private TextField tf_new_password;
+	@FXML
+	private Label label_failed_message;
+	@FXML
+	private Label label_update_message;
 	
 	
 	private Stage stage;
@@ -60,20 +64,32 @@ public class ForgotController {
 						if (queryResult.getInt(1)==1) {
 							Connection connection2 = DriverManager.getConnection
 									("jdbc:sqlserver://javaflightdb.database.windows.net:1433;database=javaflightdb;user=javaflightdb@javaflightdb;password=CISproject22!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
-							String verifyAnswer2 = "SELECT password FROM UserAccounts WHERE username = '" + tf_username.getText() + "' AND securityanswer = '" + tf_security_answer.getText() + "'";
-							Statement statement1 = connection2.createStatement();
 							
-							ResultSet newQueryResult = statement1.executeQuery(verifyAnswer2);
+							String database = "UPDATE UserAccounts SET password=(?) WHERE username =(?)";
+							PreparedStatement stat = connection.prepareStatement(database);
+						
+							stat.setString(1, tf_new_password.getText());
+							stat.setString(2, tf_username.getText());
+						
+
+							System.out.println("updated password");
+							stat.executeUpdate();
+							
+							label_update_message.setText("Password updated!");	
+							//String verifyAnswer2 = "SELECT password FROM UserAccounts WHERE username = '" + tf_username.getText() + "' AND securityanswer = '" + tf_security_answer.getText() + "'";
+							//Statement statement1 = connection2.createStatement();
+							
+							//ResultSet newQueryResult = statement1.executeQuery(verifyAnswer2);
 					
 							//String b  = newQueryResult.getString();
 							
-							label_password_message.setText(newQueryResult.toString());
+							//label_password_message.setText(newQueryResult.toString());
 						
 					
 					// if not, print error message	
 					}else {
 						
-						label_password_message.setText("Invalid answer. Please try again");
+						label_failed_message.setText("Invalid answer. Please try again!");
 					}	
 				
 					}
