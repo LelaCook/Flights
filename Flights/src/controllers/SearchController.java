@@ -13,7 +13,6 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -32,10 +31,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
- 
-
 public class SearchController implements Initializable {
-	
 	
 	@FXML
 	private TableView<FlightModel> table;
@@ -70,11 +66,8 @@ public class SearchController implements Initializable {
 	
 	ObservableList <FlightModel> flightModelObservableList = FXCollections.observableArrayList();
 	
-	
 	@Override
 	public void initialize(URL url, ResourceBundle resource) {
-		
-			
 		
 		try {
 			Connection connection = DriverManager.getConnection
@@ -85,7 +78,6 @@ public class SearchController implements Initializable {
 			Statement statement = connection.createStatement();
 			ResultSet queryResult = statement.executeQuery(displayFlights);
 		
-			
 			while (queryResult.next()) {
 			
 				String queryFlightid = queryResult.getString("flightid");
@@ -96,8 +88,8 @@ public class SearchController implements Initializable {
 				String queryDepartDate = queryResult.getString("departdate");
 				String queryDepartTime = queryResult.getString("departtime");
 				
-				
-				flightModelObservableList.add(new FlightModel(queryFlightid,queryToCity, queryArriveDate, queryArriveTime, queryFromCity, queryDepartDate, queryDepartTime));
+			flightModelObservableList.add(new FlightModel(queryFlightid,queryToCity, queryArriveDate, queryArriveTime, queryFromCity, queryDepartDate, queryDepartTime));
+			
 			}
 			
 			idColumn.setCellValueFactory(new PropertyValueFactory<FlightModel, String>("flightid"));
@@ -107,12 +99,11 @@ public class SearchController implements Initializable {
 			fromCityColumn.setCellValueFactory(new PropertyValueFactory<FlightModel, String>("fromcity"));
 			departDateColumn.setCellValueFactory(new PropertyValueFactory<FlightModel, String>("departdate"));
 			departTimeColumn.setCellValueFactory(new PropertyValueFactory<FlightModel, String>("departtime"));
-		
-		
 			
 			table.setItems(flightModelObservableList);
 			
-		
+			System.out.println("what");
+			
 		} catch (SQLException e){
 			System.out.print("Hi");
 			
@@ -120,60 +111,51 @@ public class SearchController implements Initializable {
 			e.printStackTrace();
 			
 		}
-	}
-	
-	
-	
-	
-	
-	/*	FilteredList<FlightModel> filteredData = new FilteredList<>(flightModelObservableList, b -> true);
-			
-			//start 
-			arriveText.textProperty().addListener((observable, aldValue, newValue) -> {
-				filteredData.setPredicate(productSearchModel -> {
+		
+		FilteredList<FlightModel> filteredData = new FilteredList<>(flightModelObservableList, b -> true);
+		
+		//start 
+		arriveText.textProperty().addListener((observable, aldValue, newValue) -> {
+			filteredData.setPredicate(productSearchModel -> {
+				
+				if(newValue.isEmpty() || newValue.isBlank() || newValue == null) {
+				return true;
+				}
+				
+				String searchKeyboard = newValue.toLowerCase();
+				
+				if (FlightModel.getArriveDate().toLowerCase().indexOf(searchKeyboard) > -1) {
 					
-					if(newValue.isEmpty() || newValue.isBlank() || newValue == null) {
+				} else 
+					return false;
+			});
+		});
+		// end
+		
+		departText.textProperty().addListener((observable, aldValue, newValue) -> {
+			filteredData.setPredicate(productSearchModel -> {
+				
+				if(newValue.isEmpty() || newValue.isBlank() || newValue == null) {
 					return true;
-					}
+				}
+				
+				String searchKeyboard = newValue.toLowerCase();
+				
+				if (FlightModel.getDepartDate().toLowerCase().indexOf(searchKeyboard) > -1) {
 					
-					String searchKeyboard = newValue.toLowerCase();
-					
-					if (FlightModel.getArriveDate().toLowerCase().indexOf(searchKeyboard) > -1) {
-						
-					} else 
-						return false;
-				});
+				} else 
+					return false;
 			});
-			// end
-			
-			departText.textProperty().addListener((observable, aldValue, newValue) -> {
-				filteredData.setPredicate(productSearchModel -> {
-					
-					if(newValue.isEmpty() || newValue.isBlank() || newValue == null) {
-						return true;
-					}
-					
-					String searchKeyboard = newValue.toLowerCase();
-					
-					if (FlightModel.getDepartDate().toLowerCase().indexOf(searchKeyboard) > -1) {
-						
-					} else 
-						return false;
-				});
-			});
-			
-			SortedList<FlightModel> sortedData = SortedList<>(filteredData);
-			
-			sortedData.comparatorProperty().bind(table.comparatorProperty());
-			
-			table.setItems(sortedData);
-			*/
-			
-			
-	
-	
+		});
+		
+		SortedList<FlightModel> sortedData = SortedList<>(filteredData);
+		
+		sortedData.comparatorProperty().bind(table.comparatorProperty());
+		
+		table.setItems(sortedData);
+		
+	}
 
-	
 	public void logout(ActionEvent event) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("../gui/Logout.fxml"));
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
