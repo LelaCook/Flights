@@ -103,7 +103,7 @@ public class AdminController {
 	}
 		
 	public void back (ActionEvent event) throws IOException{
-		Parent root = FXMLLoader.load(getClass().getResource("../gui/Logout.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("../gui/AdminLogout.fxml"));
 		Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		Scene scene = new Scene(root);
 		stage.setScene(scene);
