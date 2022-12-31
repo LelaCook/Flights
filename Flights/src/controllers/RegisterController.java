@@ -32,6 +32,16 @@ public class RegisterController {
 	private Scene scene;
 	private Parent root;
 
+	public static Connection getConnection() throws SQLException{
+			String database = "jdbc:sqlserver://javaflightdb.database.windows.net:1433;database=javaflightdb;user=javaflightdb@javaflightdb;password=CISproject22!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
+			Connection connection = DriverManager.getConnection(database);
+			System.out.print("connection established");
+			
+			return connection;
+		
+	}
+	
+	
 	//once info is inserted, press log in to log in with new credentials which are now in databse 
 	public void goToLogin(ActionEvent event) throws IOException {
 		root = FXMLLoader.load(getClass().getResource("../gui/Login.fxml"));
@@ -70,12 +80,15 @@ public class RegisterController {
 			e.getCause();			
 		
 		} 
+		String user = tf_username.getText();
+		
 		try {
-		String a = "CREATE TABLE"' + tf_ (flightid varchar(20))" ;
+		Connection conn = getConnection();
+		PreparedStatement stat = conn.prepareStatement("CREATE TABLE " + user + " (flightid varchar(20))");
 				//(flightid VARCHAR(20) INT NOT NULL, fromcity VARCHAR(20) INT NOT NULL)";
-		Statement b = connection.createStatement();
-	
-		b.executeUpdate(a);
+		
+		stat.executeUpdate();
+		
 		//wont work when i try to get tf from user (look below)
 		
 		//statement.setString(1, "hi");
