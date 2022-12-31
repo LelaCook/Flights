@@ -27,7 +27,6 @@ public class AdminRegisterController {
 	@FXML
 	private TextField tf_security_answer;
 	
-	
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
@@ -40,35 +39,30 @@ public class AdminRegisterController {
 		stage.setScene(scene);
 		stage.show();
 	}
-//insert info and click submit in oder for it to go to database
-
+	//insert info and click submit in oder for it to go to database
 
 	public void addToAdminAccounts (ActionEvent event) throws SQLException {
 		Connection connection = DriverManager.getConnection
 				("jdbc:sqlserver://javaflightdb.database.windows.net:1433;database=javaflightdb;user=javaflightdb@javaflightdb;password=CISproject22!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
 		try {
 			//insert into admin account
-		String database = "INSERT INTO AdminAccounts (username,password,securityanswer) VALUES (?,?,?)";
-		PreparedStatement statement = connection.prepareStatement(database);
+			String database = "INSERT INTO AdminAccounts (username,password,securityanswer) VALUES (?,?,?)";
+			PreparedStatement statement = connection.prepareStatement(database);
+		
+			statement.setString(1, tf_username.getText());
+			statement.setString(2, tf_password.getText());
+			statement.setString(3, tf_security_answer.getText());
 	
-		statement.setString(1, tf_username.getText());
-		statement.setString(2, tf_password.getText());
-		statement.setString(3, tf_security_answer.getText());
-
-		System.out.println("inserted into admin accts");
-		statement.executeUpdate();
-		
+			System.out.println("inserted into admin accts");
+			statement.executeUpdate();
 			
-
-		//statement.setString(1, "hi");
-		//statement.setString(2, "hello");
-		//statement.setString(3, "bye");
-		
-		System.out.println("inserted");
-		
-		statement.executeUpdate();
-
-
+			//statement.setString(1, "hi");
+			//statement.setString(2, "hello");
+			//statement.setString(3, "bye");
+			
+			System.out.println("inserted");
+			
+			statement.executeUpdate();
 
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -79,7 +73,6 @@ public class AdminRegisterController {
 			String data = "INSERT INTO UserAccounts (username,password,securityanswer) VALUES (?,?,?)";
 			PreparedStatement stat = connection.prepareStatement(data);
 		
-			
 			stat.setString(1, tf_username.getText());
 			stat.setString(2, tf_password.getText());
 			stat.setString(3, tf_security_answer.getText());
@@ -88,11 +81,10 @@ public class AdminRegisterController {
 			
 			stat.executeUpdate();
 			
-			
-			}catch (Exception e) {
-				e.printStackTrace();
-				e.getCause();
-			}
+		}catch (Exception e) {
+			e.printStackTrace();
+			e.getCause();
+		}
 		
 	}
 

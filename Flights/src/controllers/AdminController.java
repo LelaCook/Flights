@@ -42,10 +42,7 @@ public class AdminController {
 	@FXML
 	private TextField tf_departtime;
 	@FXML
-	private Label label_add_message;
-	@FXML
-	private Label label_delete_message;
-
+	private Label message;
 
 	private Stage stage;
 	private Scene scene;
@@ -56,50 +53,49 @@ public class AdminController {
 					("jdbc:sqlserver://javaflightdb.database.windows.net:1433;database=javaflightdb;user=javaflightdb@javaflightdb;password=CISproject22!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
 			
 			try {
-			String b = "INSERT INTO FINALFLIGHTS (flightid, capacity, tocity, fromcity, departdate, arrivedate, arrivetime, departtime) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-			PreparedStatement statement = connection.prepareStatement(b);
-		
-			//wont work when i try to get tf from user (look below)
+				String b = "INSERT INTO FINALFLIGHTS (flightid, capacity, tocity, fromcity, departdate, arrivedate, arrivetime, departtime) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+				PreparedStatement statement = connection.prepareStatement(b);
 			
-			statement.setString(1, tf_flightid.getText());
-			statement.setString(2, tf_capacity.getText());
-			statement.setString(3, tf_tocity.getText());
-			statement.setString(4, tf_fromcity.getText());
-			statement.setString(5, dp_depart.getText());
-			statement.setString(6, dp_arrive.getText());
-			statement.setString(7, tf_arrivetime.getText());
-			statement.setString(8, tf_departtime.getText());
-
-			statement.executeUpdate(); 
-			System.out.println("Inserted");
-			label_add_message.setText("Flight added!");
-			
+				//wont work when i try to get tf from user (look below)
+				
+				statement.setString(1, tf_flightid.getText());
+				statement.setString(2, tf_capacity.getText());
+				statement.setString(3, tf_tocity.getText());
+				statement.setString(4, tf_fromcity.getText());
+				statement.setString(5, dp_depart.getText());
+				statement.setString(6, dp_arrive.getText());
+				statement.setString(7, tf_arrivetime.getText());
+				statement.setString(8, tf_departtime.getText());
+	
+				statement.executeUpdate(); 
+				System.out.println("Inserted");
+				message.setText("Flight added!");
+				
 			}catch (Exception e) {
 				e.printStackTrace();
 				e.getCause(); }
 	}
+	
 	public void delete (ActionEvent event) throws SQLException  {
 		Connection connection = DriverManager.getConnection
 			("jdbc:sqlserver://javaflightdb.database.windows.net:1433;database=javaflightdb;user=javaflightdb@javaflightdb;password=CISproject22!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
 		
 		try {
-		String b = "DELETE from FINALFLIGHTS where flightid = (?)";
-		PreparedStatement statement = connection.prepareStatement(b);
+			String b = "DELETE from FINALFLIGHTS where flightid = (?)";
+			PreparedStatement statement = connection.prepareStatement(b);
+			
+			//wont work when i try to get tf from user (look below)
+			
+			statement.setString(1, tf_id_delete.getText());
 		
-		//wont work when i try to get tf from user (look below)
-		
-		statement.setString(1, tf_id_delete.getText());
-	
-		statement.executeUpdate(); 
-		System.out.println("Deleted");
-		label_delete_message.setText("Flight Deleted!");
-		
-		
+			statement.executeUpdate(); 
+			System.out.println("Deleted");
+			message.setText("Flight Deleted!");
 
-		}catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
-			e.getCause(); }
-		
+			e.getCause(); 
+		}
 	}
 		
 	public void back (ActionEvent event) throws IOException{

@@ -74,14 +74,9 @@
                </children>
             </GridPane>
             <TextField fx:id="tf_id_delete" prefHeight="17.0" prefWidth="98.0" promptText="Flight ID" GridPane.rowIndex="4" />
-            <Label fx:id="label_add_message" prefHeight="26.0" prefWidth="0.0" textFill="#0fd319" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="4">
+            <Label fx:id="message" prefHeight="30.0" prefWidth="124.0" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="4">
                <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-            </Label>
-            <Label fx:id="label_delete_message" textFill="#ee0101" GridPane.columnIndex="2" GridPane.rowIndex="4">
-               <font>
-                  <Font name="System Bold" size="22.0" />
+                  <Font name="System Bold" size="12.0" />
                </font>
             </Label>
             <GridPane vgap="10.0" GridPane.columnIndex="3" GridPane.rowIndex="4">

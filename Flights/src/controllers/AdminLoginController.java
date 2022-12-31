@@ -19,7 +19,6 @@ import javafx.stage.Stage;
 
 public class AdminLoginController{
 	
-	
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
@@ -31,9 +30,6 @@ public class AdminLoginController{
 	@FXML
 	private TextField tf_password;
 	
-	
-	
-	
 	public void register (ActionEvent event) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("../gui/AdminRegister.fxml"));
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -41,10 +37,6 @@ public class AdminLoginController{
 		stage.setScene(scene);
 		stage.show();
 	}
-	
-
-	
-	
 	
 	public void login (ActionEvent event) throws IOException, SQLException {
 		//connect to db
@@ -70,21 +62,16 @@ public class AdminLoginController{
 					stage.show();
 			
 			// if not, print error message	
-			}else {
-				
-					label_login_message.setText("Invalid login. Please try again");
-			}	
-		}
+			} else {
+				label_login_message.setText("Invalid login. Please try again");
+				}	
+			}
 			
 		}catch (Exception e) {
 			e.printStackTrace();
 			e.getCause();
 		}
 	}
-		
-		
-	
-	
 
 	public void back (ActionEvent event) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("../gui/Login.fxml"));

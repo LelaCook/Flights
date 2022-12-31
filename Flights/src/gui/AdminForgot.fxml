@@ -61,35 +61,13 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <GridPane>
-                    <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                     <children>
-                        <Label fx:id="label_failed_message" textFill="#f80101" GridPane.rowIndex="1">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="label_update_message" textFill="#02d356">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </GridPane>
-                  <Button fx:id="button_login" mnemonicParsing="false" onAction="#backToLogin" prefHeight="26.0" prefWidth="62.0" text="Login" GridPane.columnIndex="1" />
+                  <Button fx:id="button_login" mnemonicParsing="false" onAction="#backToLogin" prefHeight="43.0" prefWidth="62.0" text="Back to Login" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" />
+                  <Label fx:id="message" wrapText="true">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
                </children>
-            </GridPane>
-            <GridPane hgap="5.0" vgap="5.0">
-               <rowConstraints>
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-               </rowConstraints>
             </GridPane>
          </children>
       </GridPane>

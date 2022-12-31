@@ -63,20 +63,18 @@ public class AccountController {
 				("jdbc:sqlserver://javaflightdb.database.windows.net:1433;database=javaflightdb;user=javaflightdb@javaflightdb;password=CISproject22!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
 		
 		try {
-		String b = "DELETE from FINALFLIGHTS where flightid = (?)";
-		PreparedStatement statement = connection.prepareStatement(b);
+			String b = "DELETE from FINALFLIGHTS where flightid = (?)";
+			PreparedStatement statement = connection.prepareStatement(b);
+			
+			//wont work when i try to get tf from user (look below)
+			
+			statement.setString(1, idText.getText());
 		
-		//wont work when i try to get tf from user (look below)
+			statement.executeUpdate(); 
+			System.out.println("Deleted");
+			message.setText("Flight Deleted!");
 		
-		statement.setString(1, idText.getText());
-	
-		statement.executeUpdate(); 
-		System.out.println("Deleted");
-		message.setText("Flight Deleted!");
-		
-		
-
-		}catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			e.getCause(); }
 	}

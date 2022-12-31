@@ -28,10 +28,7 @@ public class ForgotController {
 	@FXML
 	private TextField tf_new_password;
 	@FXML
-	private Label label_failed_message;
-	@FXML
-	private Label label_update_message;
-	
+	private Label message;
 	
 	private Stage stage;
 	private Scene scene;
@@ -42,8 +39,7 @@ public class ForgotController {
 		scene = new Scene(root);
 		stage.setScene(scene);
 		stage.show();
-		
-}
+	}
 
 	public void revealPassword (ActionEvent event) throws IOException, SQLException, ClassNotFoundException {
 		//connect to db
@@ -56,7 +52,6 @@ public class ForgotController {
 					
 				Statement statement = connection.createStatement();
 					ResultSet queryResult = statement.executeQuery(verifyAnswer);
-
 					
 				while (queryResult.next()) {
 					if (queryResult.getInt(1)==1) {
@@ -69,11 +64,10 @@ public class ForgotController {
 						stat.setString(1, tf_new_password.getText());
 						stat.setString(2, tf_username.getText());
 						
-
 						System.out.println("updated password");
 						stat.executeUpdate();
 							
-						label_update_message.setText("Password updated!");	
+						message.setText("Password updated!");	
 						//String verifyAnswer2 = "SELECT password FROM UserAccounts WHERE username = '" + tf_username.getText() + "' AND securityanswer = '" + tf_security_answer.getText() + "'";
 						//Statement statement1 = connection2.createStatement();
 							
@@ -86,8 +80,7 @@ public class ForgotController {
 					
 				// if not, print error message	
 				}else {
-					
-					label_failed_message.setText("Invalid answer. Please try again!");
+					message.setText("Invalid answer. Please try again!");
 				}	
 				
 				}
@@ -97,4 +90,4 @@ public class ForgotController {
 			}
 		}
 		
-	}
+}

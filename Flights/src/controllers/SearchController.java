@@ -211,10 +211,12 @@ public class SearchController implements Initializable {
 					//set label message
 					
 				} else {
-					label_flight_message.setText("This ")
+					label_flight_message.setText("This ");
 				
 				}
 					
 					//set label
-				
-		
+			}	
+		}	
+	}
+}
