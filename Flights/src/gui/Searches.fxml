@@ -38,7 +38,7 @@
                   <TextField fx:id="fromText" promptText="From" />
                   <TextField fx:id="toText" promptText="To" GridPane.columnIndex="2" />
                   <TextField fx:id="departText" promptText="MM/DD/YYYY Depart" GridPane.columnIndex="1" />
-                  <TextField promptText="MM/DD/YYYY Arrive" GridPane.columnIndex="3" />
+                  <TextField fx:id="arriveText" promptText="MM/DD/YYYY Arrive" GridPane.columnIndex="3" />
                </children>
             </GridPane>
             <Button mnemonicParsing="false" text="Search" GridPane.columnIndex="1">
@@ -66,7 +66,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <TextField prefHeight="26.0" prefWidth="141.0" promptText="Flight ID" GridPane.columnIndex="1" />
+                  <TextField fx:id="idText" prefHeight="26.0" prefWidth="141.0" promptText="Flight ID" GridPane.columnIndex="1" />
                   <Button mnemonicParsing="false" text="Add" GridPane.columnIndex="2">
                      <font>
                         <Font name="Book Antiqua" size="12.0" />
@@ -77,12 +77,12 @@
             <TableView fx:id="table" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                <columns>
                 <TableColumn fx:id="idColumn" prefWidth="57.599976897239685" text="Flight ID" />
-                  <TableColumn fx:id="toCityColumn" prefWidth="75.0" text="City" />
-                  <TableColumn fx:id="arriveDateColumn" prefWidth="70.4000244140625" text="Date" />
-                  <TableColumn fx:id="arriveTimeColumn" prefWidth="84.0000061035156" text=" Time" />
                   <TableColumn fx:id="fromCityColumn" prefWidth="88.00000762939453" text="City" />
                   <TableColumn fx:id="departDateColumn" prefWidth="71.20001220703125" text="Date" />
                 <TableColumn fx:id="departTimeColumn" prefWidth="68.79998779296875" text="Time" />
+                  <TableColumn fx:id="toCityColumn" prefWidth="75.0" text="City" />
+                  <TableColumn fx:id="arriveDateColumn" prefWidth="70.4000244140625" text="Date" />
+                  <TableColumn fx:id="arriveTimeColumn" prefWidth="84.0000061035156" text=" Time" />
                </columns>
             </TableView>
          </children>

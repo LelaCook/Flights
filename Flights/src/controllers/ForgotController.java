@@ -35,7 +35,6 @@ public class ForgotController {
 	
 	private Stage stage;
 	private Scene scene;
-	private Parent root;
 	
 	public void backToLogin (ActionEvent event) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("../gui/Login.fxml"));

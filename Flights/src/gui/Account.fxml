@@ -73,13 +73,13 @@
             </Button>
             <TableView prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <columns>
-                  <TableColumn prefWidth="55.20001298189163" text="Flight ID" />
-                  <TableColumn prefWidth="32.800045013427734" text="City" />
-                  <TableColumn prefWidth="79.20001220703125" text="Depart Time" />
-                  <TableColumn prefWidth="76.0" text="Depart Date" />
-                  <TableColumn prefWidth="39.19996643066406" text="City" />
-                  <TableColumn prefWidth="71.20001220703125" text="Arrive Time" />
-                  <TableColumn prefWidth="73.59996337890624" text="Arrive Date" />
+                  <TableColumn fx:id="idColumn" prefWidth="55.20001298189163" text="Flight ID" />
+                  <TableColumn fx:id="fromCityColumn" prefWidth="91.99999618530273" text="City" />
+                  <TableColumn fx:id="departDateColumn" prefWidth="64.800048828125" text="Date" />
+                  <TableColumn fx:id="departTimeColumn" prefWidth="55.20002746582031" text="Time" />
+                  <TableColumn fx:id="toCityColumn" prefWidth="86.4000244140625" text="City" />
+                  <TableColumn fx:id="arriveDateColumn" prefWidth="59.199951171875" text="Date" />
+                  <TableColumn fx:id="arriveDateColumn" prefWidth="22.4000244140625" text="Time" />
                </columns>
             </TableView>
          </children>

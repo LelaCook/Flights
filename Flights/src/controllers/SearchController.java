@@ -112,6 +112,7 @@ public class SearchController implements Initializable {
 			
 		}
 		
+		/*
 		FilteredList<FlightModel> filteredData = new FilteredList<>(flightModelObservableList, b -> true);
 		
 		//start 
@@ -154,7 +155,8 @@ public class SearchController implements Initializable {
 		
 		table.setItems(sortedData);	
 	}
-
+	*/
+		
 	public void logout(ActionEvent event) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("../gui/Logout.fxml"));
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();

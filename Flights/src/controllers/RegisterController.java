@@ -50,7 +50,7 @@ public class RegisterController {
 		stage.setScene(scene);
 		stage.show();
 	}
-//insert info and click submit in oder for it to go to database
+	//insert info and click submit in oder for it to go to database
 	public void goToLoginSubmit (ActionEvent event) throws SQLException {
 		Connection connection = DriverManager.getConnection
 				("jdbc:sqlserver://javaflightdb.database.windows.net:1433;database=javaflightdb;user=javaflightdb@javaflightdb;password=CISproject22!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
@@ -83,23 +83,21 @@ public class RegisterController {
 		String user = tf_username.getText();
 		
 		try {
-		Connection conn = getConnection();
-		PreparedStatement stat = conn.prepareStatement("CREATE TABLE " + user + " (flightid varchar(20))");
-				//(flightid VARCHAR(20) INT NOT NULL, fromcity VARCHAR(20) INT NOT NULL)";
-		
-		stat.executeUpdate();
-		
-		//wont work when i try to get tf from user (look below)
-		
-		//statement.setString(1, "hi");
-		//statement.setString(2, "hello");
-		//statement.setString(3, "bye");
-		
-		System.out.println("inserted");
-		
-		}
-		
-		catch (SQLException e) {
+			Connection conn = getConnection();
+			PreparedStatement stat = conn.prepareStatement("CREATE TABLE " + user + " (flightid varchar(20))");
+					//(flightid VARCHAR(20) INT NOT NULL, fromcity VARCHAR(20) INT NOT NULL)";
+			
+			stat.executeUpdate();
+			
+			//wont work when i try to get tf from user (look below)
+			
+			//statement.setString(1, "hi");
+			//statement.setString(2, "hello");
+			//statement.setString(3, "bye");
+			
+			System.out.println("inserted");
+			
+		} catch (SQLException e) {
 			e.printStackTrace();
 			e.getCause();
 			
