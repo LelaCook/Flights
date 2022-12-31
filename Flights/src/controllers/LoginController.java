@@ -52,13 +52,13 @@ public class LoginController{
 				("jdbc:sqlserver://javaflightdb.database.windows.net:1433;database=javaflightdb;user=javaflightdb@javaflightdb;password=CISproject22!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
 		
 		//create string (verifyLogin) that will compare user input to database attributes
-		String verifyLogin = "SELECT count(1) FROM UserAccounts WHERE username = '" + tf_username.getText() + "' AND password = '" + tf_password.getText() + "'";
+		String verifylogin = "SELECT count(1) FROM UserAccounts WHERE username = '" + tf_username.getText() + "' AND password = '" + tf_password.getText() + "'";
 		
 		
 		try {
 			//executes verifyLogin statement and store results in queryResult
 			Statement statement = connection.createStatement();
-			ResultSet queryResult = statement.executeQuery(verifyLogin);
+			ResultSet queryResult = statement.executeQuery(verifylogin);
 			
 			//turn queryResult into int and test if its 1 (if theres a match), if so go to search page
 			while (queryResult.next()) {

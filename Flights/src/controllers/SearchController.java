@@ -25,6 +25,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Labeled;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -49,6 +50,9 @@ public class SearchController implements Initializable {
 	private TableColumn<FlightModel, String> departDateColumn;
 	@FXML
 	private TableColumn<FlightModel, String> departTimeColumn;
+	
+	@FXML
+	private TextField tf_flight;  
 
 	private TextField arriveText;  
 	private TextField departText;
@@ -59,6 +63,7 @@ public class SearchController implements Initializable {
 	private Button button_logout;
 	@FXML
 	private Button button_account;
+	
 	
 	private Stage stage;
 	private Scene scene;
@@ -111,7 +116,7 @@ public class SearchController implements Initializable {
 			e.printStackTrace();
 			
 		}
-		
+	}
 		/*
 		FilteredList<FlightModel> filteredData = new FilteredList<>(flightModelObservableList, b -> true);
 		
@@ -180,10 +185,36 @@ public class SearchController implements Initializable {
 		stage.setScene(scene);
 		stage.show();
 	}
+
+
+
 	
 	public void add(ActionEvent event) throws IOException, SQLException {
-		//type in flight ID, insert flight ID into userAccounts
-		//for account controller, IF flightID (flighttable) == flightID (userAccounts) , write select statement to display flight info based on flight ID from flight table 
-	}
-	
-}
+		Connection connection = DriverManager.getConnection
+				("jdbc:sqlserver://javaflightdb.database.windows.net:1433;database=javaflightdb;user=javaflightdb@javaflightdb;password=CISproject22!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
+		
+		String flight = tf_flight.getText();
+		//create string (verifyLogin) that will compare user input to database attributes
+		String  verifyidinput = "SELECT COUNT(1) FROM [dbo].[FINALFLIGHTS2] WHERE flightid = " + flight + "";		
+		
+		try {
+			Statement statement = connection.createStatement();
+			ResultSet queryResult = statement.executeQuery(verifyidinput);
+			
+			//turn queryResult into int and test if its 1 (if theres a match), if so go to search page
+			while (queryResult.next()) {
+				if (queryResult.getInt(1)==1) {
+					String insert = "INSERT INTO [dbo].[tester] SELECT * FROM [dbo].[FINALFLIGHTS2] WHERE flightid = " + flight + "";
+					Statement st = connection.createStatement();
+					st.executeUpdate(insert);
+					
+					//set label message
+					
+				} else {
+					label_flight_message.setText("This ")
+				
+				}
+					
+					//set label
+				
+		

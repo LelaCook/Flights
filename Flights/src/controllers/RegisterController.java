@@ -84,7 +84,7 @@ public class RegisterController {
 		
 		try {
 			Connection conn = getConnection();
-			PreparedStatement stat = conn.prepareStatement("CREATE TABLE " + user + " (flightid varchar(20))");
+			PreparedStatement stat = conn.prepareStatement("CREATE TABLE " + user + " (flightid varchar(20), tocity varchar(20), arrivedate varchar(20), arrivetime varchar(20), fromcity varchar(20), departdate varchar(20), departtime varchar(20))");
 					//(flightid VARCHAR(20) INT NOT NULL, fromcity VARCHAR(20) INT NOT NULL)";
 			
 			stat.executeUpdate();
@@ -96,6 +96,7 @@ public class RegisterController {
 			//statement.setString(3, "bye");
 			
 			System.out.println("inserted");
+			
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
