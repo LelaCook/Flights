@@ -124,7 +124,7 @@ public class SearchController implements Initializable {
 				
 				String searchKeyboard = newValue.toLowerCase();
 				
-				if (FlightModel.getArriveDate().toLowerCase().indexOf(searchKeyboard) > -1) {
+				if (FlightModel.getArrivedate().toLowerCase().indexOf(searchKeyboard) > -1) {
 					
 				} else 
 					return false;
@@ -141,19 +141,18 @@ public class SearchController implements Initializable {
 				
 				String searchKeyboard = newValue.toLowerCase();
 				
-				if (FlightModel.getDepartDate().toLowerCase().indexOf(searchKeyboard) > -1) {
+				if (FlightModel.getDepartdate().toLowerCase().indexOf(searchKeyboard) > -1) {
 					
 				} else 
 					return false;
 			});
 		});
 		
-		SortedList<FlightModel> sortedData = SortedList<>(filteredData);
+		SortedList<FlightModel> sortedData = new SortedList<>(filteredData);
 		
 		sortedData.comparatorProperty().bind(table.comparatorProperty());
 		
-		table.setItems(sortedData);
-		
+		table.setItems(sortedData);	
 	}
 
 	public void logout(ActionEvent event) throws IOException {

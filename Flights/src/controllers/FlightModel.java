@@ -13,78 +13,65 @@ public class FlightModel {
 		this.departdate = departdate;
 		this.departtime = departtime;
 	
-}
+	}
 
-	public String getFlightid () {
+	public String getFlightid() {
 		return flightid;
-		
 	}
-	
-	public String getToCity () {
+
+	public void setFlightid(String flightid) {
+		this.flightid = flightid;
+	}
+
+	public String getTocity() {
 		return tocity;
-		
 	}
-	
-	public String getArriveDate () {
+
+	public void setTocity(String tocity) {
+		this.tocity = tocity;
+	}
+
+	public String getArrivedate() {
 		return arrivedate;
-		
 	}
-	
-	public String getArriveTime () {
+
+	public void setArrivedate(String arrivedate) {
+		this.arrivedate = arrivedate;
+	}
+
+	public String getArrivetime() {
 		return arrivetime;
 	}
-	
-	public String getFromCity () {
-		return fromcity;
-		
-	}
-	
-	public String getDepartDate () {
-		return departdate;
 
-	}
-	
-	public String getDepartTime () {
-		return departtime;
-
-	}
-	
-	
-	
-	
-	public void setFlightid (String flightid) {
-		this.flightid = flightid;
-	
-	}
-	
-	public void setToCity (String tocity) {
-		this.tocity = tocity;
-	
-	}
-	
-	public void setArriveDate (String arrivedate) {
-		this.arrivedate = arrivedate;
-	
-	}
-	public void setArriveTime (String arrivetime) {
+	public void setArrivetime(String arrivetime) {
 		this.arrivetime = arrivetime;
-	
 	}
 
-	public void setFromCity (String fromcity) {
+	public String getFromcity() {
+		return fromcity;
+	}
+
+	public void setFromcity(String fromcity) {
 		this.fromcity = fromcity;
-	
 	}
-	
-	public void setDepartDate (String departdate) {
+
+	public String getDepartdate() {
+		return departdate;
+	}
+
+	public void setDepartdate(String departdate) {
 		this.departdate = departdate;
-	
-	}	
-	
-	public void setDepartTime (String departtime) {
-		this.departtime = departtime;
-	
 	}
+
+	public String getDeparttime() {
+		return departtime;
+	}
+
+	public void setDeparttime(String departtime) {
+		this.departtime = departtime;
+	}
+
+	
 	
 }
 	
