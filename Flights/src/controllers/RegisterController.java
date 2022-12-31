@@ -15,6 +15,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -26,7 +27,7 @@ public class RegisterController {
 	private TextField tf_password;
 	@FXML
 	private TextField tf_security_answer;
-	
+	private Label message;
 	
 	private Stage stage;
 	private Scene scene;
@@ -41,7 +42,6 @@ public class RegisterController {
 		
 	}
 	
-	
 	//once info is inserted, press log in to log in with new credentials which are now in databse 
 	public void goToLogin(ActionEvent event) throws IOException {
 		root = FXMLLoader.load(getClass().getResource("../gui/Login.fxml"));
@@ -50,10 +50,12 @@ public class RegisterController {
 		stage.setScene(scene);
 		stage.show();
 	}
+	
 	//insert info and click submit in oder for it to go to database
 	public void goToLoginSubmit (ActionEvent event) throws SQLException {
 		Connection connection = DriverManager.getConnection
 				("jdbc:sqlserver://javaflightdb.database.windows.net:1433;database=javaflightdb;user=javaflightdb@javaflightdb;password=CISproject22!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
+		
 		try {
 		String database = "INSERT INTO UserAccounts (username,password,securityanswer) VALUES (?,?,?)";
 		PreparedStatement statement = connection.prepareStatement(database);
@@ -62,24 +64,21 @@ public class RegisterController {
 		statement.setString(1, tf_username.getText());
 		statement.setString(2, tf_password.getText());
 		statement.setString(3, tf_security_answer.getText());
-		
-		
-		
+
 		//statement.setString(1, "hi");
 		//statement.setString(2, "hello");
 		//statement.setString(3, "bye");
 		
+		statement.executeUpdate();
+		
+		message.setText("Account Created");
 		System.out.println("inserted");
 		
-		statement.executeUpdate();
-		}
-		
-		
-		catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			e.getCause();			
-		
 		} 
+		
 		String user = tf_username.getText();
 		
 		try {
@@ -95,15 +94,12 @@ public class RegisterController {
 			//statement.setString(2, "hello");
 			//statement.setString(3, "bye");
 			
-			System.out.println("inserted");
 			
+			System.out.println("inserted");
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
 			e.getCause();
-			
-			
-			
 		}
 	}
 }

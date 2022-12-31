@@ -28,9 +28,7 @@ public class AdminForgotController {
 	@FXML
 	private TextField tf_new_password;
 	@FXML
-	private Label label_failed_message;
-	@FXML
-	private Label label_update_message;
+	private Label message;
 	
 	
 	private Stage stage;

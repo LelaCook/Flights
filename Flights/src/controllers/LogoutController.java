@@ -18,11 +18,9 @@ public class LogoutController {
 	private Button button_yes;
 	private Button button_no;
 	
-
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
-	
 	
 	public void yes(ActionEvent event) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("../gui/Login.fxml"));

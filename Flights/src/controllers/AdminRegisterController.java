@@ -15,6 +15,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -26,6 +27,7 @@ public class AdminRegisterController {
 	private TextField tf_password;
 	@FXML
 	private TextField tf_security_answer;
+	private Label message;
 	
 	private Stage stage;
 	private Scene scene;
@@ -60,9 +62,10 @@ public class AdminRegisterController {
 			//statement.setString(2, "hello");
 			//statement.setString(3, "bye");
 			
-			System.out.println("inserted");
-			
 			statement.executeUpdate();
+			
+			message.setText("Account Created");
+			System.out.println("inserted");
 
 		}catch (Exception e) {
 			e.printStackTrace();

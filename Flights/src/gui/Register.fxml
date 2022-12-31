@@ -79,7 +79,7 @@
                   <Font name="Impact" size="17.0" />
                </font>
             </Label>
-            <Button fx:id="button_submit" mnemonicParsing="false" onAction="#goToLoginSubmit" prefHeight="26.0" prefWidth="79.0" text="Submit" translateX="155.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <Button fx:id="button_submit" mnemonicParsing="false" onAction="#goToLoginSubmit" prefHeight="28.0" prefWidth="85.0" text="Submit" GridPane.columnIndex="2" GridPane.rowIndex="5">
                <font>
                   <Font name="Book Antiqua" size="14.0" />
                </font>
@@ -116,6 +116,11 @@
                   <Font name="Book Antiqua" size="14.0" />
                </font>
             </Button>
+            <Label fx:id="message" prefHeight="54.0" prefWidth="190.0" text=" " wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
          </children>
       </GridPane>
    </children>

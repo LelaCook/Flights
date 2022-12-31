@@ -19,7 +19,6 @@ import javafx.stage.Stage;
 
 public class LoginController{
 	
-	
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
@@ -31,9 +30,6 @@ public class LoginController{
 	@FXML
 	private TextField tf_password;
 	
-	
-	
-	
 	public void register (ActionEvent event) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("../gui/Register.fxml"));
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -42,10 +38,6 @@ public class LoginController{
 		stage.show();
 	}
 	
-
-	
-	
-	
 	public void login (ActionEvent event) throws IOException, SQLException {
 		//connect to db
 		Connection connection = DriverManager.getConnection
@@ -53,7 +45,6 @@ public class LoginController{
 		
 		//create string (verifyLogin) that will compare user input to database attributes
 		String verifylogin = "SELECT count(1) FROM UserAccounts WHERE username = '" + tf_username.getText() + "' AND password = '" + tf_password.getText() + "'";
-		
 		
 		try {
 			//executes verifyLogin statement and store results in queryResult
@@ -71,7 +62,6 @@ public class LoginController{
 			
 			// if not, print error message	
 			}else {
-				
 					label_login_message.setText("Invalid login. Please try again");
 			}	
 		}
@@ -82,27 +72,21 @@ public class LoginController{
 		}
 	}
 		
-		
-	
-	
-	
 	public void forgotPassword (ActionEvent event) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("../gui/Forgot.fxml"));
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		scene = new Scene(root);
 		stage.setScene(scene);
 		stage.show();
-}
+	}
 
-		
-	
 	public void adminLogin (ActionEvent event) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("../gui/AdminLogin.fxml"));
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		scene = new Scene(root);
 		stage.setScene(scene);
 		stage.show();
-}
 	}
-	
+}
+
 	
