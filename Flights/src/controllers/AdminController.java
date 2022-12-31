@@ -80,7 +80,7 @@ public class AdminController {
 	}
 	public void delete (ActionEvent event) throws SQLException  {
 		Connection connection = DriverManager.getConnection
-				("jdbc:sqlserver://javaflightdb.database.windows.net:1433;database=javaflightdb;user=javaflightdb@javaflightdb;password=CISproject22!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
+			("jdbc:sqlserver://javaflightdb.database.windows.net:1433;database=javaflightdb;user=javaflightdb@javaflightdb;password=CISproject22!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
 		
 		try {
 		String b = "DELETE from FINALFLIGHTS where flightid = (?)";

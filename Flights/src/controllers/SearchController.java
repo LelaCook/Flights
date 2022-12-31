@@ -173,6 +173,14 @@ public class SearchController implements Initializable {
 		stage.show();
 	}
 	
+	public void goToAdmin(ActionEvent event) throws IOException {
+		Parent root = FXMLLoader.load(getClass().getResource("../gui/Admin.fxml"));
+		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
+	}
+	
 	public void add(ActionEvent event) throws IOException, SQLException {
 		//type in flight ID, insert flight ID into userAccounts
 		//for account controller, IF flightID (flighttable) == flightID (userAccounts) , write select statement to display flight info based on flight ID from flight table 

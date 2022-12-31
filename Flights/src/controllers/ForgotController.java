@@ -47,55 +47,54 @@ public class ForgotController {
 
 	public void revealPassword (ActionEvent event) throws IOException, SQLException, ClassNotFoundException {
 		//connect to db
-				Connection connection = DriverManager.getConnection
-						("jdbc:sqlserver://javaflightdb.database.windows.net:1433;database=javaflightdb;user=javaflightdb@javaflightdb;password=CISproject22!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
-				
-				
-				String verifyAnswer = "SELECT count(1) FROM UserAccounts WHERE username = '" + tf_username.getText() + "' AND securityanswer = '" + tf_security_answer.getText() + "'";		
+		Connection connection = DriverManager.getConnection
+			("jdbc:sqlserver://javaflightdb.database.windows.net:1433;database=javaflightdb;user=javaflightdb@javaflightdb;password=CISproject22!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
+						
+		String verifyAnswer = "SELECT count(1) FROM UserAccounts WHERE username = '" + tf_username.getText() + "' AND securityanswer = '" + tf_security_answer.getText() + "'";		
 
-				try {
+		try {
 					
-					Statement statement = connection.createStatement();
+				Statement statement = connection.createStatement();
 					ResultSet queryResult = statement.executeQuery(verifyAnswer);
 
 					
-					while (queryResult.next()) {
-						if (queryResult.getInt(1)==1) {
-							Connection connection2 = DriverManager.getConnection
-									("jdbc:sqlserver://javaflightdb.database.windows.net:1433;database=javaflightdb;user=javaflightdb@javaflightdb;password=CISproject22!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
+				while (queryResult.next()) {
+					if (queryResult.getInt(1)==1) {
+						Connection connection2 = DriverManager.getConnection
+								("jdbc:sqlserver://javaflightdb.database.windows.net:1433;database=javaflightdb;user=javaflightdb@javaflightdb;password=CISproject22!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
 							
-							String database = "UPDATE UserAccounts SET password=(?) WHERE username =(?)";
-							PreparedStatement stat = connection.prepareStatement(database);
+						String database = "UPDATE UserAccounts SET password=(?) WHERE username =(?)";
+						PreparedStatement stat = connection.prepareStatement(database);
 						
-							stat.setString(1, tf_new_password.getText());
-							stat.setString(2, tf_username.getText());
+						stat.setString(1, tf_new_password.getText());
+						stat.setString(2, tf_username.getText());
 						
 
-							System.out.println("updated password");
-							stat.executeUpdate();
+						System.out.println("updated password");
+						stat.executeUpdate();
 							
-							label_update_message.setText("Password updated!");	
-							//String verifyAnswer2 = "SELECT password FROM UserAccounts WHERE username = '" + tf_username.getText() + "' AND securityanswer = '" + tf_security_answer.getText() + "'";
-							//Statement statement1 = connection2.createStatement();
+						label_update_message.setText("Password updated!");	
+						//String verifyAnswer2 = "SELECT password FROM UserAccounts WHERE username = '" + tf_username.getText() + "' AND securityanswer = '" + tf_security_answer.getText() + "'";
+						//Statement statement1 = connection2.createStatement();
 							
-							//ResultSet newQueryResult = statement1.executeQuery(verifyAnswer2);
+						//ResultSet newQueryResult = statement1.executeQuery(verifyAnswer2);
 					
-							//String b  = newQueryResult.getString();
+						//String b  = newQueryResult.getString();
 							
-							//label_password_message.setText(newQueryResult.toString());
+						//label_password_message.setText(newQueryResult.toString());
 						
 					
-					// if not, print error message	
-					}else {
-						
-						label_failed_message.setText("Invalid answer. Please try again!");
-					}	
+				// if not, print error message	
+				}else {
+					
+					label_failed_message.setText("Invalid answer. Please try again!");
+				}	
 				
-					}
-				}catch (Exception e) {
-					e.printStackTrace();
-					e.getCause();
 				}
+			}catch (Exception e) {
+				e.printStackTrace();
+				e.getCause();
 			}
+		}
 		
 	}
