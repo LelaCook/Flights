@@ -25,6 +25,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.Labeled;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -63,6 +64,8 @@ public class SearchController implements Initializable {
 	private Button button_logout;
 	@FXML
 	private Button button_account;
+	@FXML
+	private Label label_flight_message;
 	
 	
 	private Stage stage;
@@ -211,7 +214,7 @@ public class SearchController implements Initializable {
 					//set label message
 					
 				} else {
-					label_flight_message.setText("This ");
+					label_flight_message.setText("This is an incorrect flight id");
 				
 				}
 					
