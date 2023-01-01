@@ -19,7 +19,7 @@ import javafx.stage.Stage;
 
 public class LoginController{
 	
-	public String test;
+	public static String test;
 	
 	private Stage stage;
 	private Scene scene;
@@ -41,11 +41,11 @@ public class LoginController{
 	}
 	
 	// might have to delete
-	public void setUser(String a) {
+	public static void setUser(String a) {
 		test = a;
 	}
 	
-	public String getUser() {
+	public static String getUser() {
 		return test;
 	}
 	
