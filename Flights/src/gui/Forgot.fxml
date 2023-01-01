@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="300.0" style="-fx-background-color: powderblue;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ForgotController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="300.0" style="-fx-background-color: powderblue;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AdminForgotController">
    <children>
       <GridPane vgap="10.0">
         <columnConstraints>
@@ -61,7 +61,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button fx:id="button_login" mnemonicParsing="false" onAction="#backToLogin" prefHeight="42.0" prefWidth="60.0" text="Back to Login" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" />
+                  <Button fx:id="button_login" mnemonicParsing="false" onAction="#backToLogin" prefHeight="43.0" prefWidth="62.0" text="Back to Login" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" />
                   <Label fx:id="message" wrapText="true">
                      <font>
                         <Font size="14.0" />

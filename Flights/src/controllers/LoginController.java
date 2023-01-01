@@ -28,7 +28,7 @@ public class LoginController{
 	@FXML
 	private Label label_login_message;
 	@FXML
-	private static TextField tf_username;
+	private TextField tf_username;
 	@FXML
 	private TextField tf_password;
 	
@@ -48,7 +48,7 @@ public class LoginController{
 	public static String getUser() {
 		return test;
 	}
-	
+
 	public void login (ActionEvent event) throws IOException, SQLException {
 		//connect to db
 		Connection connection = DriverManager.getConnection
