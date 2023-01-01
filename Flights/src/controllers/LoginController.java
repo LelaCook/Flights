@@ -19,7 +19,7 @@ import javafx.stage.Stage;
 
 public class LoginController{
 	
-	static String test;
+	public String test;
 	
 	private Stage stage;
 	private Scene scene;
@@ -41,14 +41,13 @@ public class LoginController{
 	}
 	
 	// might have to delete
-	public static void setUser(String a) {
+	public void setUser(String a) {
 		test = a;
 	}
 	
-	public static String getUser() {
+	public String getUser() {
 		return test;
 	}
-	
 	
 	public void login (ActionEvent event) throws IOException, SQLException {
 		//connect to db
@@ -58,11 +57,9 @@ public class LoginController{
 		//create string (verifyLogin) that will compare user input to database attributes
 		String verifylogin = "SELECT count(1) FROM UserAccounts WHERE username = '" + tf_username.getText() + "' AND password = '" + tf_password.getText() + "'";
 		
-		// jvsgsv part of the get user
-		String test = tf_username.getText();
+		//setUser(tf_username.getText());
 		
 		try {
-			
 			//executes verifyLogin statement and store results in queryResult
 			Statement statement = connection.createStatement();
 			ResultSet queryResult = statement.executeQuery(verifylogin);
@@ -78,6 +75,7 @@ public class LoginController{
 			
 			// if not, print error message	
 			}else {
+				
 					label_login_message.setText("Invalid login. Please try again");
 			}	
 		}
