@@ -29,7 +29,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-public class AccountController implememnts Initializable {
+public class AccountController implemements Initializable {
 	
 	@FXML
 	private TableView<FlightModel> table;
@@ -65,7 +65,7 @@ public class AccountController implememnts Initializable {
 ObservableList <FlightModel> flightModelObservableList = FXCollections.observableArrayList();
 	
 	@Override
-	public void initialize(URL url, ResourceBundle resource) {
+	public void initiaize(URL url, ResourceBundle resource) {
 		
 		try {
 			Connection connection = DriverManager.getConnection
