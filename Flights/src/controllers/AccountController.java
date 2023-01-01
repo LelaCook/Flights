@@ -145,7 +145,7 @@ ObservableList <FlightModel> flightModelObservableList = FXCollections.observabl
 		
 		try {	
 			//need to reference specific user table
-			String b = "DELETE from  where flightid = (?)";
+			String b = "DELETE" + user + " from  where flightid = (?)";
 			PreparedStatement statement = connection.prepareStatement(b);
 			
 			statement.setString(1, idText.getText());
