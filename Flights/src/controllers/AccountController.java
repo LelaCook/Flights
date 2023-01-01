@@ -143,6 +143,8 @@ ObservableList <FlightModel> flightModelObservableList = FXCollections.observabl
 		Connection connection = DriverManager.getConnection
 				("jdbc:sqlserver://javaflightdb.database.windows.net:1433;database=javaflightdb;user=javaflightdb@javaflightdb;password=CISproject22!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
 		
+		String user = LoginController.getUser();
+		
 		try {	
 			//need to reference specific user table
 			String b = "DELETE" + user + " from  where flightid = (?)";
