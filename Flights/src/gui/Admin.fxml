@@ -79,23 +79,6 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <GridPane vgap="10.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints />
-              </rowConstraints>
-               <children>
-                  <Button fx:id="button_back" mnemonicParsing="false" onAction="#back" prefHeight="26.0" prefWidth="90.0" text="Log Out" GridPane.rowIndex="1">
-                     <font>
-                        <Font name="Book Antiqua" size="12.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="button_refresh" mnemonicParsing="false" onAction="#refresh" prefHeight="25.0" prefWidth="89.0" text="Refresh" />
-               </children>
-            </GridPane>
             <GridPane hgap="10.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -105,8 +88,8 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button fx:id="button_delete" mnemonicParsing="false" onAction="#delete" prefHeight="36.0" prefWidth="54.0" text="Delete" />
-                  <Button fx:id="button_add" mnemonicParsing="false" onAction="#add" prefHeight="39.0" prefWidth="50.0" text="Add" GridPane.columnIndex="1">
+                  <Button fx:id="button_delete" mnemonicParsing="false" onAction="#delete" text="Delete" />
+                  <Button fx:id="button_add" mnemonicParsing="false" onAction="#add" prefHeight="26.0" prefWidth="54.0" text="Add" GridPane.columnIndex="1">
                      <font>
                         <Font name="Book Antiqua" size="12.0" />
                      </font>
@@ -129,6 +112,35 @@
                   <Font name="Impact" size="17.0" />
                </font>
             </Label>
+            <GridPane GridPane.columnIndex="3" GridPane.rowIndex="4">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="66.20001602172852" minWidth="10.0" prefWidth="63.0" />
+                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="55.0" minWidth="10.0" prefWidth="55.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <GridPane vgap="10.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints />
+                    </rowConstraints>
+                     <children>
+                        <Button fx:id="button_back" mnemonicParsing="false" onAction="#back" text="Log Out" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Book Antiqua" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="button_refresh" mnemonicParsing="false" onAction="#refresh" prefHeight="26.0" prefWidth="61.0" text="Refresh" />
+                     </children>
+                  </GridPane>
+                  <Button mnemonicParsing="false" onAction="#all" prefHeight="48.0" prefWidth="51.0" text="All Flights" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" />
+               </children>
+            </GridPane>
          </children>
       </GridPane>
    </children>
