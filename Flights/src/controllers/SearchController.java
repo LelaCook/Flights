@@ -67,7 +67,6 @@ public class SearchController implements Initializable {
 	@FXML
 	private Label label_flight_message;
 	
-	
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
@@ -188,18 +187,15 @@ public class SearchController implements Initializable {
 		stage.setScene(scene);
 		stage.show();
 	}
-
-
-
 	
 	public void add(ActionEvent event) throws IOException, SQLException {
 		Connection connection = DriverManager.getConnection
 				("jdbc:sqlserver://javaflightdb.database.windows.net:1433;database=javaflightdb;user=javaflightdb@javaflightdb;password=CISproject22!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
 		
 		String flight = tf_flight.getText();
-
 		//create string (verifyLogin) that will compare user input to database attributes
-		String  verifyidinput = "SELECT COUNT(1) FROM [dbo].[FINALFLIGHTS2] WHERE flightid = " + flight + "";		
+		String  verifyidinput = "SELECT COUNT(1) FROM [dbo].[FINALFLIGHTS2] WHERE flightid = " + flight + "";	
+		String user = LoginController.gotUser();
 		
 		try {
 			Statement statement = connection.createStatement();
@@ -227,7 +223,6 @@ public class SearchController implements Initializable {
 					e.getCause();
 				}
 			
-					
 					//set label
 	}
 			

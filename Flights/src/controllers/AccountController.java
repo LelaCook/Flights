@@ -62,18 +62,10 @@ public class AccountController {
 		Connection connection = DriverManager.getConnection
 				("jdbc:sqlserver://javaflightdb.database.windows.net:1433;database=javaflightdb;user=javaflightdb@javaflightdb;password=CISproject22!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
 		
-		try {
-			
-			
-			
-			
-			
-			
+		try {	
 			//need to reference specific user table
 			String b = "DELETE from  where flightid = (?)";
 			PreparedStatement statement = connection.prepareStatement(b);
-			
-		
 			
 			statement.setString(1, idText.getText());
 		

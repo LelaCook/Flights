@@ -26,7 +26,7 @@ public class LoginController{
 	@FXML
 	private Label label_login_message;
 	@FXML
-	private TextField tf_username;
+	private static TextField tf_username;
 	@FXML
 	private TextField tf_password;
 	
@@ -38,6 +38,11 @@ public class LoginController{
 		stage.show();
 	}
 	
+	// might have to delete
+	public static String gotUser() {
+		return test;
+	}
+	
 	public void login (ActionEvent event) throws IOException, SQLException {
 		//connect to db
 		Connection connection = DriverManager.getConnection
@@ -46,7 +51,11 @@ public class LoginController{
 		//create string (verifyLogin) that will compare user input to database attributes
 		String verifylogin = "SELECT count(1) FROM UserAccounts WHERE username = '" + tf_username.getText() + "' AND password = '" + tf_password.getText() + "'";
 		
+		// jvsgsv part of the get user
+		String test = tf_username.getText();
+		
 		try {
+			
 			//executes verifyLogin statement and store results in queryResult
 			Statement statement = connection.createStatement();
 			ResultSet queryResult = statement.executeQuery(verifylogin);

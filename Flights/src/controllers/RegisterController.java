@@ -42,8 +42,6 @@ public class RegisterController {
 		
 	}
 	
-	
-	
 	//once info is inserted, press log in to log in with new credentials which are now in databse 
 	public void goToLogin(ActionEvent event) throws IOException {
 		root = FXMLLoader.load(getClass().getResource("../gui/Login.fxml"));
@@ -71,8 +69,9 @@ public class RegisterController {
 		//statement.setString(2, "hello");
 		//statement.setString(3, "bye");
 		
-		statement.executeUpdate();
+		message.setText("New Account Made");
 		
+		statement.executeUpdate();
 		
 		System.out.println("inserted");
 		
@@ -81,9 +80,9 @@ public class RegisterController {
 			e.getCause();			
 		} 
 		
-		String user = tf_username.getText();
-		
 		try {
+			String user = LoginController.gotUser();
+			
 			Connection conn = getConnection();
 			PreparedStatement stat = conn.prepareStatement("CREATE TABLE " + user + " (flightid varchar(20), tocity varchar(20), arrivedate varchar(20), arrivetime varchar(20), fromcity varchar(20), departdate varchar(20), departtime varchar(20))");
 					//(flightid VARCHAR(20) INT NOT NULL, fromcity VARCHAR(20) INT NOT NULL)";
@@ -95,7 +94,6 @@ public class RegisterController {
 			//statement.setString(1, "hi");
 			//statement.setString(2, "hello");
 			//statement.setString(3, "bye");
-			
 			
 			System.out.println("inserted");
 			
