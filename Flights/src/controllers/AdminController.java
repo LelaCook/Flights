@@ -26,8 +26,6 @@ public class AdminController {
 	@FXML
 	private TextField tf_flightid;
 	@FXML
-	private TextField tf_capacity;
-	@FXML
 	private TextField tf_tocity;
 	@FXML
 	private TextField tf_fromcity;
@@ -53,19 +51,19 @@ public class AdminController {
 					("jdbc:sqlserver://javaflightdb.database.windows.net:1433;database=javaflightdb;user=javaflightdb@javaflightdb;password=CISproject22!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
 			
 			try {
-				String b = "INSERT INTO FINALFLIGHTS (flightid, capacity, tocity, fromcity, departdate, arrivedate, arrivetime, departtime) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+				String b = "INSERT INTO FINALFLIGHTS2 (flightid, tocity, fromcity, departdate, arrivedate, arrivetime, departtime) VALUES (?, ?, ?, ?, ?, ?, ?)";
 				PreparedStatement statement = connection.prepareStatement(b);
 			
 				//wont work when i try to get tf from user (look below)
 				
 				statement.setString(1, tf_flightid.getText());
-				statement.setString(2, tf_capacity.getText());
-				statement.setString(3, tf_tocity.getText());
-				statement.setString(4, tf_fromcity.getText());
-				statement.setString(5, dp_depart.getText());
-				statement.setString(6, dp_arrive.getText());
-				statement.setString(7, tf_arrivetime.getText());
-				statement.setString(8, tf_departtime.getText());
+				
+				statement.setString(2, tf_tocity.getText());
+				statement.setString(3, tf_fromcity.getText());
+				statement.setString(4, dp_depart.getText());
+				statement.setString(5, dp_arrive.getText());
+				statement.setString(6, tf_arrivetime.getText());
+				statement.setString(7, tf_departtime.getText());
 	
 				statement.executeUpdate(); 
 				System.out.println("Inserted");
@@ -81,7 +79,7 @@ public class AdminController {
 			("jdbc:sqlserver://javaflightdb.database.windows.net:1433;database=javaflightdb;user=javaflightdb@javaflightdb;password=CISproject22!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
 		
 		try {
-			String b = "DELETE from FINALFLIGHTS where flightid = (?)";
+			String b = "DELETE from FINALFLIGHTS2 where flightid = (?)";
 			PreparedStatement statement = connection.prepareStatement(b);
 			
 			//wont work when i try to get tf from user (look below)

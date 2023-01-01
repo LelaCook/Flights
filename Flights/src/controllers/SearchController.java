@@ -197,6 +197,7 @@ public class SearchController implements Initializable {
 				("jdbc:sqlserver://javaflightdb.database.windows.net:1433;database=javaflightdb;user=javaflightdb@javaflightdb;password=CISproject22!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
 		
 		String flight = tf_flight.getText();
+
 		//create string (verifyLogin) that will compare user input to database attributes
 		String  verifyidinput = "SELECT COUNT(1) FROM [dbo].[FINALFLIGHTS2] WHERE flightid = " + flight + "";		
 		

@@ -42,6 +42,8 @@ public class RegisterController {
 		
 	}
 	
+	
+	
 	//once info is inserted, press log in to log in with new credentials which are now in databse 
 	public void goToLogin(ActionEvent event) throws IOException {
 		root = FXMLLoader.load(getClass().getResource("../gui/Login.fxml"));
