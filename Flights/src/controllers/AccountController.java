@@ -29,6 +29,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
+public class AccountController {
+/*
 public class AccountController implemements Initializable {
 	
 	@FXML
@@ -47,7 +49,7 @@ public class AccountController implemements Initializable {
 	private TableColumn<FlightModel, String> departDateColumn;
 	@FXML
 	private TableColumn<FlightModel, String> departTimeColumn;
-	
+	*/
 	@FXML 
 	private Button button_back;
 	private Button button_logout;
@@ -61,7 +63,7 @@ public class AccountController implemements Initializable {
 	private Scene scene;
 	private Parent root;
 
-	
+	/*
 ObservableList <FlightModel> flightModelObservableList = FXCollections.observableArrayList();
 	
 	@Override
@@ -111,7 +113,7 @@ ObservableList <FlightModel> flightModelObservableList = FXCollections.observabl
 		}
 	}
 	
-	
+	*/
 	
 	public void back(ActionEvent event) throws IOException {
 		root = FXMLLoader.load(getClass().getResource("../gui/Searches.fxml"));
@@ -157,5 +159,5 @@ ObservableList <FlightModel> flightModelObservableList = FXCollections.observabl
 			e.getCause(); }
 	}
 	
-
+}
 	
