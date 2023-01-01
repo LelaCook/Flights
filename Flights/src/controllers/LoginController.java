@@ -19,6 +19,8 @@ import javafx.stage.Stage;
 
 public class LoginController{
 	
+	static String test;
+	
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
@@ -39,9 +41,14 @@ public class LoginController{
 	}
 	
 	// might have to delete
-	public static String gotUser() {
+	public static void setUser(String a) {
+		test = a;
+	}
+	
+	public static String getUser() {
 		return test;
 	}
+	
 	
 	public void login (ActionEvent event) throws IOException, SQLException {
 		//connect to db

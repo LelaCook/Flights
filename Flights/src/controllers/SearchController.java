@@ -195,7 +195,7 @@ public class SearchController implements Initializable {
 		String flight = tf_flight.getText();
 		//create string (verifyLogin) that will compare user input to database attributes
 		String  verifyidinput = "SELECT COUNT(1) FROM [dbo].[FINALFLIGHTS2] WHERE flightid = " + flight + "";	
-		String user = LoginController.gotUser();
+		String user = LoginController.getUser();
 		
 		try {
 			Statement statement = connection.createStatement();
