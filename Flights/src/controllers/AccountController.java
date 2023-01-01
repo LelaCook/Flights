@@ -63,17 +63,15 @@ public class AccountController implements Initializable {
 	private Parent root;
 
 	
-ObservableList <FlightModel> flightModelObservableList = FXCollections.observableArrayList();
+	ObservableList <FlightModel> flightModelObservableList = FXCollections.observableArrayList();
 	
 	public void initiaize(URL url, ResourceBundle resource) {
 		
 		try {
 			Connection connection = DriverManager.getConnection
 					("jdbc:sqlserver://javaflightdb.database.windows.net:1433;database=javaflightdb;user=javaflightdb@javaflightdb;password=CISproject22!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
-			
-			String user = LoginController.getUser();
 		
-			String displayFlights = "SELECT flightid, tocity, arrivedate, arrivetime, fromcity, departdate, departtime FROM" + user; 
+			String displayFlights = "SELECT flightid, tocity, arrivedate, arrivetime, fromcity, departdate, departtime FROM" + User.user; 
 		
 			Statement statement = connection.createStatement();
 			ResultSet queryResult = statement.executeQuery(displayFlights);
@@ -143,11 +141,9 @@ ObservableList <FlightModel> flightModelObservableList = FXCollections.observabl
 		Connection connection = DriverManager.getConnection
 				("jdbc:sqlserver://javaflightdb.database.windows.net:1433;database=javaflightdb;user=javaflightdb@javaflightdb;password=CISproject22!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
 		
-		String user = LoginController.getUser();
-		
 		try {	
 			//need to reference specific user table
-			String b = "DELETE" + user + " from  where flightid = (?)";
+			String b = "DELETE" + User.user + " from  where flightid = (?)";
 			PreparedStatement statement = connection.prepareStatement(b);
 			
 			statement.setString(1, idText.getText());

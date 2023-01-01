@@ -19,8 +19,6 @@ import javafx.stage.Stage;
 
 public class LoginController{
 	
-	public static String test;
-	
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
@@ -39,15 +37,6 @@ public class LoginController{
 		stage.setScene(scene);
 		stage.show();
 	}
-	
-	// might have to delete
-	public static void setUser(String a) {
-		test = a;
-	}
-	
-	public static String getUser() {
-		return test;
-	}
 
 	public void login (ActionEvent event) throws IOException, SQLException {
 		//connect to db
@@ -57,7 +46,7 @@ public class LoginController{
 		//create string (verifyLogin) that will compare user input to database attributes
 		String verifylogin = "SELECT count(1) FROM UserAccounts WHERE username = '" + tf_username.getText() + "' AND password = '" + tf_password.getText() + "'";
 		
-		setUser(tf_username.getText());
+		User.user = tf_username.getText();
 		
 		try {
 			//executes verifyLogin statement and store results in queryResult

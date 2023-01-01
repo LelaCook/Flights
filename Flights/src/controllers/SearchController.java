@@ -196,8 +196,6 @@ public class SearchController implements Initializable {
 		//create string (verifyLogin) that will compare user input to database attributes
 		String  verifyidinput = "SELECT COUNT(1) FROM [dbo].[FINALFLIGHTS2] WHERE flightid = " + flight + "";	
 		
-		String user = LoginController.getUser();
-		
 		try {
 			Statement statement = connection.createStatement();
 			ResultSet queryResult = statement.executeQuery(verifyidinput);
@@ -206,7 +204,7 @@ public class SearchController implements Initializable {
 			while (queryResult.next()) {
 				if (queryResult.getInt(1)==1) {
 					//how do i specify what table to insert flight values in if its based on textfield in regiter controller
-					String insert = "INSERT INTO " + user + "SELECT * FROM [dbo].[FINALFLIGHTS2] WHERE flightid = " + flight + "";
+					String insert = "INSERT INTO " + User.user + "SELECT * FROM [dbo].[FINALFLIGHTS2] WHERE flightid = " + flight + "";
 					Statement st = connection.createStatement();
 					st.executeUpdate(insert);
 					
@@ -227,4 +225,4 @@ public class SearchController implements Initializable {
 					//set label
 	}
 			
-	}
+}
