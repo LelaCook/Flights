@@ -72,6 +72,8 @@ ObservableList <FlightModel> flightModelObservableList = FXCollections.observabl
 		try {
 			Connection connection = DriverManager.getConnection
 					("jdbc:sqlserver://javaflightdb.database.windows.net:1433;database=javaflightdb;user=javaflightdb@javaflightdb;password=CISproject22!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
+			
+			String user = LoginController.getUser();
 		
 			String displayFlights = "SELECT flightid, tocity, arrivedate, arrivetime, fromcity, departdate, departtime FROM" + user; 
 		
