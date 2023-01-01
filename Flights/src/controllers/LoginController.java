@@ -57,7 +57,7 @@ public class LoginController{
 		//create string (verifyLogin) that will compare user input to database attributes
 		String verifylogin = "SELECT count(1) FROM UserAccounts WHERE username = '" + tf_username.getText() + "' AND password = '" + tf_password.getText() + "'";
 		
-		//setUser(tf_username.getText());
+		setUser(tf_username.getText());
 		
 		try {
 			//executes verifyLogin statement and store results in queryResult
