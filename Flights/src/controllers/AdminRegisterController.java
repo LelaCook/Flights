@@ -27,7 +27,7 @@ public class AdminRegisterController {
 	private TextField tf_password;
 	@FXML
 	private TextField tf_security_answer;
-	private Label message;
+	private Label label_admin_register;
 	
 	private Stage stage;
 	private Scene scene;
@@ -63,7 +63,8 @@ public class AdminRegisterController {
 			//statement.setString(3, "bye");
 		
 			System.out.println("inserted");
-
+			label_admin_register.setText("Account created! Please login.");
+			
 		}catch (Exception e) {
 			e.printStackTrace();
 			e.getCause(); 
