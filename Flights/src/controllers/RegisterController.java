@@ -39,7 +39,6 @@ public class RegisterController {
 			System.out.print("connection established");
 			
 			return connection;
-		
 	}
 	
 	//once info is inserted, press log in to log in with new credentials which are now in databse 
@@ -81,7 +80,7 @@ public class RegisterController {
 		} 
 		
 		try {
-			String user = LoginController.gotUser();
+			String user = tf_username.getText();
 			
 			Connection conn = getConnection();
 			PreparedStatement stat = conn.prepareStatement("CREATE TABLE " + user + " (flightid varchar(20), tocity varchar(20), arrivedate varchar(20), arrivetime varchar(20), fromcity varchar(20), departdate varchar(20), departtime varchar(20))");
