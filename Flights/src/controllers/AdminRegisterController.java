@@ -33,7 +33,7 @@ public class AdminRegisterController {
 	private Scene scene;
 	private Parent root;
 
-	//once info is inserted, press log in to log in with new credentials which are now in databse 
+	//once info is inserted, press log in to log in with new credentials which are now in database 
 	public void goToLogin(ActionEvent event) throws IOException {
 		root = FXMLLoader.load(getClass().getResource("../gui/AdminLogin.fxml"));
 		stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -61,10 +61,7 @@ public class AdminRegisterController {
 			//statement.setString(1, "hi");
 			//statement.setString(2, "hello");
 			//statement.setString(3, "bye");
-			
-			statement.executeUpdate();
-			
-			message.setText("Account Created");
+		
 			System.out.println("inserted");
 
 		}catch (Exception e) {
@@ -90,5 +87,7 @@ public class AdminRegisterController {
 		}
 		
 	}
+	
+	
 
 }

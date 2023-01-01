@@ -30,6 +30,14 @@ public class AdminLoginController{
 	@FXML
 	private TextField tf_password;
 	
+	public void forgotButton (ActionEvent event) throws IOException {
+		root = FXMLLoader.load(getClass().getResource("../gui/AdminForgot.fxml"));
+		stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
+	}
+	
 	public void register (ActionEvent event) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("../gui/AdminRegister.fxml"));
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();

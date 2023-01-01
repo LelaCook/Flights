@@ -207,19 +207,27 @@ public class SearchController implements Initializable {
 			//turn queryResult into int and test if its 1 (if theres a match), if so go to search page
 			while (queryResult.next()) {
 				if (queryResult.getInt(1)==1) {
-					String insert = "INSERT INTO [dbo].[tester] SELECT * FROM [dbo].[FINALFLIGHTS2] WHERE flightid = " + flight + "";
+					//how do i specify what table to insert flight values in if its based on textfield in regiter controller
+					String insert = "INSERT INTO " + user + "SELECT * FROM [dbo].[FINALFLIGHTS2] WHERE flightid = " + flight + "";
 					Statement st = connection.createStatement();
 					st.executeUpdate(insert);
 					
 					//set label message
-					
+					label_flight_message.setText("Flight was added to your account!");
+
 				} else {
 					label_flight_message.setText("This is an incorrect flight id");
-				
 				}
+			}
+		}
+				
+				catch (Exception e) {
+					e.printStackTrace();
+					e.getCause();
+				}
+			
 					
 					//set label
-			}	
-		}	
 	}
-}
+			
+	}

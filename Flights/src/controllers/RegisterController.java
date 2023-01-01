@@ -71,7 +71,7 @@ public class RegisterController {
 		
 		statement.executeUpdate();
 		
-		message.setText("Account Created");
+		
 		System.out.println("inserted");
 		
 		} catch (Exception e) {

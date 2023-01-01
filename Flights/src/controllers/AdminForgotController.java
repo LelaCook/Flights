@@ -36,6 +36,7 @@ public class AdminForgotController {
 	private Parent root;
 	
 	
+	
 	public void backToLogin (ActionEvent event) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("../gui/AdminLogin.fxml"));
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -49,9 +50,9 @@ public class AdminForgotController {
 		Connection connection = DriverManager.getConnection
 				("jdbc:sqlserver://javaflightdb.database.windows.net:1433;database=javaflightdb;user=javaflightdb@javaflightdb;password=CISproject22!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
 		
-		String verifyAnswer = "SELECT count(1) FROM AdminAccounts WHERE username = '" + tf_username.getText() + "' AND securityanswer = '" + tf_security_answer.getText() + "'";		
-	
-			try {
+				String verifyAnswer = "SELECT count(1) FROM AdminAccounts WHERE username = '" + tf_username.getText() + "' AND securityanswer = '" + tf_security_answer.getText() + "'";		
+			
+				try {
 				Statement statement = connection.createStatement();
 				ResultSet queryResult = statement.executeQuery(verifyAnswer);
 		
@@ -74,8 +75,9 @@ public class AdminForgotController {
 		
 						System.out.println("updated password");
 						stat.executeUpdate();
+						stat1.executeUpdate();
 						
-						message.setText("Password updated!");	
+					message.setText("Updated!")	;
 						//String verifyAnswer2 = "SELECT password FROM UserAccounts WHERE username = '" + tf_username.getText() + "' AND securityanswer = '" + tf_security_answer.getText() + "'";
 						//Statement statement1 = connection2.createStatement();
 						
