@@ -54,7 +54,7 @@ public class AccountController implements Initializable {
 	private Button button_logout;
 	private Button deleteButton;
 	private Button button_refresh;
-	private TextField idText;
+	private TextField IdText;
 	private Label message;
 	//private TableView yourFlight;
 	
@@ -139,10 +139,13 @@ public class AccountController implements Initializable {
 	public void delete(ActionEvent event) throws IOException, SQLException {
 		Connection connection = DriverManager.getConnection
 				("jdbc:sqlserver://javaflightdb.database.windows.net:1433;database=javaflightdb;user=javaflightdb@javaflightdb;password=CISproject22!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
+		String flightinfo = IdText.getText();
 		
 		try {	
+			
+			
 			//need to reference specific user table
-			String b = "DELETE FROM " + User.user + " WHERE flightid = " + idText.getText();
+			String b = "DELETE FROM " + User.user + " WHERE flightid = " + flightinfo + "";
 			Statement statement = connection.createStatement();
 			
 		
