@@ -64,14 +64,15 @@ public class AccountController implements Initializable {
 
 	
 	ObservableList <FlightModel> flightModelObservableList = FXCollections.observableArrayList();
-	
-	public void initiaize(URL url, ResourceBundle resource) {
+
+	@Override
+	public void initialize(URL url, ResourceBundle resource) {
 		
 		try {
 			Connection connection = DriverManager.getConnection
 					("jdbc:sqlserver://javaflightdb.database.windows.net:1433;database=javaflightdb;user=javaflightdb@javaflightdb;password=CISproject22!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
 		
-			String displayFlights = "SELECT flightid, tocity, arrivedate, arrivetime, fromcity, departdate, departtime FROM" + User.user; 
+			String displayFlights = "SELECT flightid, tocity, arrivedate, arrivetime, fromcity, departdate, departtime FROM " + User.user; 
 		
 			Statement statement = connection.createStatement();
 			ResultSet queryResult = statement.executeQuery(displayFlights);
@@ -110,8 +111,6 @@ public class AccountController implements Initializable {
 			
 		}
 	}
-	
-
 	
 	public void back(ActionEvent event) throws IOException {
 		root = FXMLLoader.load(getClass().getResource("../gui/Searches.fxml"));
@@ -157,13 +156,6 @@ public class AccountController implements Initializable {
 			e.getCause(); }
 	}
 
-
-
-	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
-		
-	}
 	
 }
 	

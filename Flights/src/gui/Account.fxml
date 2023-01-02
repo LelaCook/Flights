@@ -75,12 +75,12 @@
             <TableView prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <columns>
                   <TableColumn fx:id="idColumn" prefWidth="55.20001298189163" text="Flight ID" />
-                  <TableColumn fx:id="fromCityColumn" prefWidth="91.99999618530273" text="City" />
-                  <TableColumn fx:id="departDateColumn" prefWidth="64.800048828125" text="Date" />
+                  <TableColumn fx:id="fromCityColumn" prefWidth="75.20000839233398" text="City" />
+                  <TableColumn fx:id="departDateColumn" prefWidth="82.4000244140625" text="Date" />
                   <TableColumn fx:id="departTimeColumn" prefWidth="55.20002746582031" text="Time" />
-                  <TableColumn fx:id="toCityColumn" prefWidth="86.4000244140625" text="City" />
-                  <TableColumn fx:id="arriveDateColumn" prefWidth="59.199951171875" text="Date" />
-                  <TableColumn fx:id="arriveDateColumn" prefWidth="22.4000244140625" text="Time" />
+                  <TableColumn fx:id="toCityColumn" prefWidth="62.4000244140625" text="City" />
+                  <TableColumn fx:id="arriveDateColumn" prefWidth="56.0" text="Date" />
+                  <TableColumn fx:id="arriveTimeColumn" prefWidth="52.0" text="Time" />
                </columns>
             </TableView>
          </children>

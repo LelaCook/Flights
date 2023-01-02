@@ -109,7 +109,7 @@ public class SearchController implements Initializable {
 			
 			table.setItems(flightModelObservableList);
 			
-			System.out.println("what");
+			System.out.println("huh");
 			
 		} catch (SQLException e){
 			System.out.print("Hi");
@@ -204,7 +204,7 @@ public class SearchController implements Initializable {
 			while (queryResult.next()) {
 				if (queryResult.getInt(1)==1) {
 					//how do i specify what table to insert flight values in if its based on textfield in regiter controller
-					String insert = "INSERT INTO " + User.user + "SELECT * FROM [dbo].[FINALFLIGHTS2] WHERE flightid = " + flight + "";
+					String insert = "INSERT INTO " + User.user + " SELECT * FROM [dbo].[FINALFLIGHTS2] WHERE flightid = " + flight + "";
 					Statement st = connection.createStatement();
 					st.executeUpdate(insert);
 					
