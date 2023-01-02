@@ -142,12 +142,12 @@ public class AccountController implements Initializable {
 		
 		try {	
 			//need to reference specific user table
-			String b = "DELETE " + User.user + " from  where flightid = (?)";
-			PreparedStatement statement = connection.prepareStatement(b);
+			String b = "DELETE FROM " + User.user + " WHERE flightid = " + idText.getText();
+			Statement statement = connection.createStatement();
 			
-			statement.setString(1, idText.getText());
 		
-			statement.executeUpdate(); 
+			statement.executeUpdate(b); 
+			
 			System.out.println("Deleted");
 			message.setText("Flight Deleted!");
 		
