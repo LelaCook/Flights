@@ -33,7 +33,7 @@ import javafx.stage.Stage;
 public class AccountController implements Initializable {
 	
 	@FXML
-	private TableView<FlightModel> table;
+	private TableView<FlightModel> account;
 	@FXML
 	private TableColumn<FlightModel, String> idColumn;
 	@FXML
@@ -99,7 +99,7 @@ public class AccountController implements Initializable {
 			departDateColumn.setCellValueFactory(new PropertyValueFactory<FlightModel, String>("departdate"));
 			departTimeColumn.setCellValueFactory(new PropertyValueFactory<FlightModel, String>("departtime"));
 			
-			table.setItems(flightModelObservableList);
+			account.setItems(flightModelObservableList);
 			
 			System.out.println("what");
 			
@@ -142,7 +142,7 @@ public class AccountController implements Initializable {
 		
 		try {	
 			//need to reference specific user table
-			String b = "DELETE" + User.user + " from  where flightid = (?)";
+			String b = "DELETE " + User.user + " from  where flightid = (?)";
 			PreparedStatement statement = connection.prepareStatement(b);
 			
 			statement.setString(1, idText.getText());

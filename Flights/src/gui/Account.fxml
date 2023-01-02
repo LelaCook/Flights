@@ -72,7 +72,7 @@
                   <Font name="Book Antiqua" size="12.0" />
                </font>
             </Button>
-            <TableView prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <TableView fx:id="account" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <columns>
                   <TableColumn fx:id="idColumn" prefWidth="55.20001298189163" text="Flight ID" />
                   <TableColumn fx:id="fromCityColumn" prefWidth="75.20000839233398" text="City" />
