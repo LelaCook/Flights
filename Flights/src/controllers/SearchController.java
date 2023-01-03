@@ -55,10 +55,8 @@ public class SearchController implements Initializable {
 	@FXML
 	private TextField tf_flight;  
 
-	private TextField arriveText;  
-	private TextField departText;
-	private TextField fromText;
-	private TextField toText;
+	private TextField cityText;  
+	private TextField dateText;
 	
 	//private Button searchButton;
 	private Button button_logout;
@@ -111,58 +109,39 @@ public class SearchController implements Initializable {
 			
 			System.out.println("huh");
 			
+			FilteredList<FlightModel> filteredData = new FilteredList<>(flightModelObservableList, b -> true);
+			
+			cityText.textProperty().addListener((observable, oldValue, newValue) -> {
+				
+				filteredData.setPredicate(FlightModel -> {
+					
+					if(newValue.isEmpty() || newValue.isBlank() || newValue == null) {
+						return true;
+					}
+					
+					String search = newValue.toLowerCase();
+					
+					if(FlightModel.getTocity().toLowerCase().indexOf(search) > -1) {
+						return true;
+					} else if(FlightModel.getFromcity().toLowerCase().indexOf(search) > -1) {
+						return true;
+					} else
+						return false;	
+				});
+			});
+			
+			SortedList<FlightModel> sortData = new SortedList<>(filteredData);
+			
+			sortData.comparatorProperty().bind(table.comparatorProperty());
+			
+			table.setItems(sortData);
+		
 		} catch (SQLException e){
-			System.out.print("Hi");
-			
-			Logger.getLogger(SearchController.class.getName()).log(Level.SEVERE, null, e);
-			e.printStackTrace();
-			
+		System.out.print("Hi");	
+		Logger.getLogger(SearchController.class.getName()).log(Level.SEVERE, null, e);
+		e.printStackTrace();
 		}
 	}
-		/*
-		FilteredList<FlightModel> filteredData = new FilteredList<>(flightModelObservableList, b -> true);
-		
-		//start 
-		arriveText.textProperty().addListener((observable, aldValue, newValue) -> {
-			filteredData.setPredicate(productSearchModel -> {
-				
-				if(newValue.isEmpty() || newValue.isBlank() || newValue == null) {
-				return true;
-				}
-				
-				String searchKeyboard = newValue.toLowerCase();
-				
-				if (FlightModel.getArrivedate().toLowerCase().indexOf(searchKeyboard) > -1) {
-					
-				} else 
-					return false;
-			});
-		});
-		// end
-		
-		departText.textProperty().addListener((observable, aldValue, newValue) -> {
-			filteredData.setPredicate(productSearchModel -> {
-				
-				if(newValue.isEmpty() || newValue.isBlank() || newValue == null) {
-					return true;
-				}
-				
-				String searchKeyboard = newValue.toLowerCase();
-				
-				if (FlightModel.getDepartdate().toLowerCase().indexOf(searchKeyboard) > -1) {
-					
-				} else 
-					return false;
-			});
-		});
-		
-		SortedList<FlightModel> sortedData = new SortedList<>(filteredData);
-		
-		sortedData.comparatorProperty().bind(table.comparatorProperty());
-		
-		table.setItems(sortedData);	
-	}
-	*/
 		
 	public void logout(ActionEvent event) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("../gui/Logout.fxml"));
