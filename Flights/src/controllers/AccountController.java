@@ -54,8 +54,10 @@ public class AccountController implements Initializable {
 	private Button button_logout;
 	private Button deleteButton;
 	private Button button_refresh;
+	@FXML
 	private TextField IdText;
-	private Label message;
+	@FXML
+	private Label label_message;
 	//private TableView yourFlight;
 	
 	private Stage stage;
@@ -139,20 +141,30 @@ public class AccountController implements Initializable {
 	public void delete(ActionEvent event) throws IOException, SQLException {
 		Connection connection = DriverManager.getConnection
 				("jdbc:sqlserver://javaflightdb.database.windows.net:1433;database=javaflightdb;user=javaflightdb@javaflightdb;password=CISproject22!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
-		String flightinfo = IdText.getText();
 		
+		String remove = IdText.getText();
+
+		String  verifyidinput = "SELECT COUNT(1) FROM " + User.user + " WHERE flightid = " + remove + "";	
 		try {	
+			Statement sta = connection.createStatement();
+			ResultSet queryResult = sta.executeQuery(verifyidinput);
 			
-			
-			//need to reference specific user table
-			String b = "DELETE FROM " + User.user + " WHERE flightid = " + flightinfo + "";
-			Statement statement = connection.createStatement();
-			
+			//turn queryResult into int and test if its 1 (if theres a match), if so go to search page
+			while (queryResult.next()) {
+				if (queryResult.getInt(1)==1) {
 		
-			statement.executeUpdate(b); 
+			//need to reference specific user table;
+					String b = "DELETE FROM " + User.user + " WHERE flightid = " + remove ;
+					Statement statement = connection.createStatement();
+		
+					statement.executeUpdate(b); 
 			
-			System.out.println("Deleted");
-			message.setText("Flight Deleted!");
+					System.out.println("Deleted");
+					label_message.setText("Flight Deleted! Please refresh.");
+				}else {
+					label_message.setText("Flight doesnt exist");	
+					}
+			}
 		
 		} catch (Exception e) {
 			e.printStackTrace();

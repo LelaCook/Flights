@@ -27,6 +27,7 @@ public class AdminRegisterController {
 	private TextField tf_password;
 	@FXML
 	private TextField tf_security_answer;
+	@FXML
 	private Label label_admin_register;
 	
 	private Stage stage;
