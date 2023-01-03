@@ -54,11 +54,13 @@ public class SearchController implements Initializable {
 	
 	@FXML
 	private TextField tf_flight;  
-
+	@FXML
 	private TextField cityText;  
+	@FXML
 	private TextField dateText;
 	
 	//private Button searchButton;
+	@FXML
 	private Button button_logout;
 	@FXML
 	private Button button_account;
@@ -124,6 +126,25 @@ public class SearchController implements Initializable {
 					if(FlightModel.getTocity().toLowerCase().indexOf(search) > -1) {
 						return true;
 					} else if(FlightModel.getFromcity().toLowerCase().indexOf(search) > -1) {
+						return true;
+					} else
+						return false;	
+				});
+			});
+			
+			dateText.textProperty().addListener((observable, oldValue, newValue) -> {
+				
+				filteredData.setPredicate(FlightModel -> {
+					
+					if(newValue.isEmpty() || newValue.isBlank() || newValue == null) {
+						return true;
+					}
+					
+					String search1 = newValue.toLowerCase();
+					
+					if(FlightModel.getArrivedate().toLowerCase().indexOf(search1) > -1) {
+						return true;
+					} else if(FlightModel.getDepartdate().toLowerCase().indexOf(search1) > -1) {
 						return true;
 					} else
 						return false;	

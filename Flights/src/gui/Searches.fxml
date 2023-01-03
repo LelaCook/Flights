@@ -38,11 +38,6 @@
                   <TextField fx:id="dateText" promptText="MM/DD/YYYY" GridPane.columnIndex="1" />
                </children>
             </GridPane>
-            <Button mnemonicParsing="false" text="Search" GridPane.columnIndex="1">
-               <font>
-                  <Font name="Book Antiqua" size="12.0" />
-               </font>
-            </Button>
             <Button fx:id="button_account" mnemonicParsing="false" onAction="#goToAccount" text="Go to Account" textAlignment="CENTER" translateY="50.0" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font name="Book Antiqua" size="12.0" />
