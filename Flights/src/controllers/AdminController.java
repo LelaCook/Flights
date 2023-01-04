@@ -67,7 +67,7 @@ public class AdminController {
 	
 				statement.executeUpdate(); 
 				System.out.println("Inserted");
-				message.setText("Flight added!");
+				message.setText("Added!");
 				
 			}catch (Exception e) {
 				e.printStackTrace();

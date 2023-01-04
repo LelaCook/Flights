@@ -194,25 +194,25 @@ public class SearchController implements Initializable {
 		
 		String flight = tf_flight.getText();
 		//create string (verifyLogin) that will compare user input to database attributes
-		String  verifyidinput = "SELECT COUNT(1) FROM [dbo].[FINALFLIGHTS2] WHERE flightid = " + flight + "";	
-		
+		String  repeat = "SELECT COUNT(1) FROM " + User.user + " WHERE flightid = " + flight + "";	
 		try {
 			Statement statement = connection.createStatement();
-			ResultSet queryResult = statement.executeQuery(verifyidinput);
-			
+			ResultSet queryResult = statement.executeQuery(repeat);
+						
 			//turn queryResult into int and test if its 1 (if theres a match), if so go to search page
 			while (queryResult.next()) {
 				if (queryResult.getInt(1)==1) {
 					//how do i specify what table to insert flight values in if its based on textfield in regiter controller
+				label_flight_message.setText("Flight already exists.");
+					//set label message
+					
+
+				} else {
 					String insert = "INSERT INTO " + User.user + " SELECT * FROM [dbo].[FINALFLIGHTS2] WHERE flightid = " + flight + "";
 					Statement st = connection.createStatement();
 					st.executeUpdate(insert);
 					
-					//set label message
-					label_flight_message.setText("Flight was added to your account!");
-
-				} else {
-					label_flight_message.setText("This is an incorrect flight id");
+					label_flight_message.setText("Flight added!");
 				}
 			}
 		}
@@ -221,8 +221,9 @@ public class SearchController implements Initializable {
 					e.printStackTrace();
 					e.getCause();
 				}
+		
+				}
 			
 					//set label
 	}
 			
-}

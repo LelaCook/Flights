@@ -64,9 +64,9 @@
                         <Font name="Book Antiqua" size="12.0" />
                      </font>
                   </Button>
-                  <Label fx:id="label_flight_message" textFill="#01c91f">
+                  <Label fx:id="label_flight_message">
                      <font>
-                        <Font size="17.0" />
+                        <Font size="14.0" />
                      </font>
                   </Label>
                </children>

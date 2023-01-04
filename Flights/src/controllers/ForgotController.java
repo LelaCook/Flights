@@ -28,7 +28,7 @@ public class ForgotController {
 	@FXML
 	private TextField tf_new_password;
 	@FXML
-	private Label message;
+	private Label label_password_message;
 	
 	private Stage stage;
 	private Scene scene;
@@ -67,7 +67,7 @@ public class ForgotController {
 						System.out.println("updated password");
 						stat.executeUpdate();
 							
-						message.setText("Password updated!");	
+						label_password_message.setText("Password updated! Please login.");	
 						//String verifyAnswer2 = "SELECT password FROM UserAccounts WHERE username = '" + tf_username.getText() + "' AND securityanswer = '" + tf_security_answer.getText() + "'";
 						//Statement statement1 = connection2.createStatement();
 							
@@ -80,7 +80,7 @@ public class ForgotController {
 					
 				// if not, print error message	
 				}else {
-					message.setText("Invalid answer. Please try again!");
+					label_password_message.setText("Invalid answer. Please try again!");
 				}	
 				
 				}

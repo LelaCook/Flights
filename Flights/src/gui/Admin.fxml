@@ -15,9 +15,9 @@
       <GridPane hgap="10.0" vgap="10.0">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="134.0" minWidth="10.0" prefWidth="98.0" />
-            <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="184.80005645751953" minWidth="10.0" prefWidth="112.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="138.0" minWidth="10.0" prefWidth="122.0" />
-          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="161.5999755859375" minWidth="10.0" prefWidth="118.0" />
+            <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="184.80005645751953" minWidth="10.0" prefWidth="121.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="138.0" minWidth="10.0" prefWidth="101.0" />
+          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="161.5999755859375" minWidth="10.0" prefWidth="130.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -76,7 +76,7 @@
             <TextField fx:id="tf_id_delete" prefHeight="17.0" prefWidth="98.0" promptText="Flight ID" GridPane.rowIndex="4" />
             <Label fx:id="message" prefHeight="30.0" prefWidth="124.0" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="4">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font size="14.0" />
                </font>
             </Label>
             <GridPane hgap="10.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
@@ -88,7 +88,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button fx:id="button_delete" mnemonicParsing="false" onAction="#delete" text="Delete" />
+                  <Button fx:id="button_delete" mnemonicParsing="false" onAction="#delete" prefHeight="25.0" prefWidth="63.0" text="Delete" />
                   <Button fx:id="button_add" mnemonicParsing="false" onAction="#add" prefHeight="26.0" prefWidth="54.0" text="Add" GridPane.columnIndex="1">
                      <font>
                         <Font name="Book Antiqua" size="12.0" />
@@ -138,7 +138,7 @@
                         <Button fx:id="button_refresh" mnemonicParsing="false" onAction="#refresh" prefHeight="26.0" prefWidth="61.0" text="Refresh" />
                      </children>
                   </GridPane>
-                  <Button mnemonicParsing="false" onAction="#all" prefHeight="48.0" prefWidth="51.0" text="All Flights" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" />
+                  <Button mnemonicParsing="false" onAction="#all" prefHeight="48.0" prefWidth="69.0" text="All Flights" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" />
                </children>
             </GridPane>
          </children>
