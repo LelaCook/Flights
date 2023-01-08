@@ -79,11 +79,11 @@
                <columns>
                   <TableColumn fx:id="idColumn" prefWidth="55.20001298189163" text="Flight ID" />
                   <TableColumn fx:id="fromCityColumn" prefWidth="75.20000839233398" text="City" />
-                  <TableColumn fx:id="departDateColumn" prefWidth="82.4000244140625" text="Date" />
-                  <TableColumn fx:id="departTimeColumn" prefWidth="55.20002746582031" text="Time" />
-                  <TableColumn fx:id="toCityColumn" prefWidth="62.4000244140625" text="City" />
                   <TableColumn fx:id="arriveDateColumn" prefWidth="56.0" text="Date" />
                   <TableColumn fx:id="arriveTimeColumn" prefWidth="52.0" text="Time" />
+                  <TableColumn fx:id="toCityColumn" prefWidth="62.4000244140625" text="City" />
+                  <TableColumn fx:id="departDateColumn" prefWidth="82.4000244140625" text="Date" />
+                  <TableColumn fx:id="departTimeColumn" prefWidth="55.20002746582031" text="Time" />
                </columns>
             </TableView>
          </children>
